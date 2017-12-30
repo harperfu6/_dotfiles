@@ -1,0 +1,88 @@
+"-------------------------------------------------------------------------------
+" Bundleを使うための設定
+" Bundleはここにaddする
+" BundleはDein.vim(https://github.com/Shougo/dein.vim)で管理する
+" Dein.vim is a dark powered Vim/Neovim plugin manager.
+
+" 個々のBundleの細かい設定は.vimrc.pluginで
+"-------------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
+" Deinを使うための設定
+"-------------------------------------------------------------------------------
+if &compatible
+    set nocompatible               " Be iMproved
+endif
+
+" Required:
+" dein.vimがインストールされているパスを指定
+set runtimepath^=~/_dotfiles/.vim/repos/github.com/Shougo/dein.vim
+"set rtp+=~/_dotfiles/.vim/repos/github.com/powerline/powerline/powerline/bindings/vim/plugin
+
+" Required:
+call dein#begin(expand('~/_dotfiles/.vim/'))
+
+
+"-------------------------------------------------------------------------------
+" .tomlファイルでプラグインを管理する場合
+"-------------------------------------------------------------------------------
+let g:config_dir  = expand('~/_dotfiles/.vim/repos/github.com/usrconfig')
+"let s:toml        = g:config_dir . '/plugins.toml'
+let s:lazy_toml   = g:config_dir . '/plugins_lazy.toml'
+
+" TOML 読み込み
+"call dein#load_toml(s:toml,      {'lazy': 0})
+call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+
+
+
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
+"-------------------------------------------------------------------------------
+" Deinを使うための設定
+"-------------------------------------------------------------------------------
+
+
+
+" Add or remove your plugins here:
+"-------------------------------------------------------------------------------
+" Examples of Bundle
+"-------------------------------------------------------------------------------
+"call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim/'})
+
+"color
+call dein#add('tomasr/molokai') "molokai
+call dein#add('nanotech/jellybeans.vim')
+
+"surround
+call dein#add('tpope/vim-surround')
+
+"MarkDown
+"call dein#add('tpope/vim-markdown')
+"call dein#add('tyru/open-browser.vim')
+"call dein#add('thinca/vim-quickrun')
+
+
+" ale(https://github.com/w0rp/ale)
+call dein#add('w0rp/ale')
+
+
+
+"-------------------------------------------------------------------------------
+" Deinを使うための設定
+"-------------------------------------------------------------------------------
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+"-------------------------------------------------------------------------------
+" Deinを使うための設定
+"-------------------------------------------------------------------------------
+
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
