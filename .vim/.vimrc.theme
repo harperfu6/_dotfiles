@@ -23,6 +23,9 @@ set cursorline
 
 syntax on
 
-"set background=dark
+set background=dark
 "colorscheme jellybeans
-"colorscheme molokai
+colorscheme molokai
+set t_Co=256
+"colorscheme powerline
+

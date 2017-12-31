@@ -1,5 +1,5 @@
-if [[ -s "/Users/harper/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh" ]]; then
-  source "/Users/harper/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh"
+if [[ -s "~/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh" ]]; then
+  source "~/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh"
 fi
 
 export ZPLUG_HOME=~/_dotfiles/.zsh/.zplug
@@ -20,6 +20,7 @@ zplug "mollifier/anyframe"
 # zplug "zsh-users/zsh-completions"
 
 #prezto
+zplug "sorin-ionescu/prezto"
 zplug "modules/prompt", from:prezto
 
 

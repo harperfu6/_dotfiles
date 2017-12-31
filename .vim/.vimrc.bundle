@@ -16,7 +16,7 @@ endif
 " Required:
 " dein.vimがインストールされているパスを指定
 set runtimepath^=~/_dotfiles/.vim/repos/github.com/Shougo/dein.vim
-"set rtp+=~/_dotfiles/.vim/repos/github.com/powerline/powerline/powerline/bindings/vim/plugin
+set rtp+=~/_dotfiles/.vim/repos/github.com/powerline/powerline/powerline/bindings/vim/plugin
 
 " Required:
 call dein#begin(expand('~/_dotfiles/.vim/'))
