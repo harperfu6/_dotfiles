@@ -36,6 +36,16 @@ fi
 zplug load --verbose
 
 
+
+#alias
+alias sp3='source ~/study/python/py36/env/bin/activate'
+alias da='dactivate'
+
+
+
+
+
+
 # (tmux)シェルログイン時に自動的にアタッチ(https://qiita.com/b4b4r07/items/01359e8a3066d1c37edc)
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
 function is_osx() { [[ $OSTYPE == darwin* ]]; }
