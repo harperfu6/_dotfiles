@@ -1,9 +1,0 @@
-[[plugins]]
-repo = "davidhalter/jedi-vim"
-on_ft = ['python']
-
-
-# インサートモードに入ったら読み込む
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-on_i = 1
