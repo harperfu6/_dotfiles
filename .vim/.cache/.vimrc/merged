@@ -1,2 +1,2 @@
 100
-['Shougo/dein.vim', 'Shougo/neocomplete.vim', 'davidhalter/jedi-vim', 'nanotech/jellybeans.vim', 'nvie/vim-flake8', 'tomasr/molokai', 'tpope/vim-surround', 'vim-syntastic/syntastic', 'w0rp/ale']
+['Shougo/dein.vim', 'Shougo/neocomplete.vim', 'davidhalter/jedi-vim', 'nanotech/jellybeans.vim', 'tomasr/molokai', 'tpope/vim-surround', 'w0rp/ale']
