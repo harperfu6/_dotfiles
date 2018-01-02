@@ -581,6 +581,8 @@ b:ale_yaml_swaglint_use_global	ale-yaml.txt	/*b:ale_yaml_swaglint_use_global*
 b:ale_yaml_yamllint_executable	ale-yaml.txt	/*b:ale_yaml_yamllint_executable*
 b:ale_yaml_yamllint_options	ale-yaml.txt	/*b:ale_yaml_yamllint_options*
 b:neocomplete_sources	neocomplete.txt	/*b:neocomplete_sources*
+cS	surround.txt	/*cS*
+cs	surround.txt	/*cs*
 dein	dein.txt	/*dein*
 dein#add()	dein.txt	/*dein#add()*
 dein#begin()	dein.txt	/*dein#begin()*
@@ -670,6 +672,7 @@ dein-unite-sources	dein.txt	/*dein-unite-sources*
 dein-usage	dein.txt	/*dein-usage*
 dein-variables	dein.txt	/*dein-variables*
 dein.txt	dein.txt	/*dein.txt*
+ds	surround.txt	/*ds*
 g:airline#extensions#ale#enabled	ale.txt	/*g:airline#extensions#ale#enabled*
 g:ale_asm_gcc_executable	ale-asm.txt	/*g:ale_asm_gcc_executable*
 g:ale_asm_gcc_options	ale-asm.txt	/*g:ale_asm_gcc_options*
@@ -1059,6 +1062,8 @@ g:neocomplete#sources#vim#complete_functions	neocomplete.txt	/*g:neocomplete#sou
 g:neocomplete#tags_filter_patterns	neocomplete.txt	/*g:neocomplete#tags_filter_patterns*
 g:neocomplete#text_mode_filetypes	neocomplete.txt	/*g:neocomplete#text_mode_filetypes*
 g:neocomplete#use_vimproc	neocomplete.txt	/*g:neocomplete#use_vimproc*
+i_CTRL-G_S	surround.txt	/*i_CTRL-G_S*
+i_CTRL-G_s	surround.txt	/*i_CTRL-G_s*
 jedi-vim-configuration	jedi-vim.txt	/*jedi-vim-configuration*
 jedi-vim-contents	jedi-vim.txt	/*jedi-vim-contents*
 jedi-vim-contributing	jedi-vim.txt	/*jedi-vim-contributing*
@@ -1175,3 +1180,16 @@ neocomplete-unite-sources	neocomplete.txt	/*neocomplete-unite-sources*
 neocomplete-user-sources	neocomplete.txt	/*neocomplete-user-sources*
 neocomplete-variables	neocomplete.txt	/*neocomplete-variables*
 neocomplete.txt	neocomplete.txt	/*neocomplete.txt*
+surround	surround.txt	/*surround*
+surround-customizing	surround.txt	/*surround-customizing*
+surround-issues	surround.txt	/*surround-issues*
+surround-mappings	surround.txt	/*surround-mappings*
+surround-replacements	surround.txt	/*surround-replacements*
+surround-targets	surround.txt	/*surround-targets*
+surround.txt	surround.txt	/*surround.txt*
+vS	surround.txt	/*vS*
+vgS	surround.txt	/*vgS*
+yS	surround.txt	/*yS*
+ySS	surround.txt	/*ySS*
+ys	surround.txt	/*ys*
+yss	surround.txt	/*yss*
