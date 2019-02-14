@@ -1,26 +1,37 @@
-if [[ -s "~/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh" ]]; then
-  source "~/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh"
+# ENV
+export TERM="xterm-256color"
+export PATH="/usr/local/opt/texinfo/bin:$PATH"
+# powerlivel9k用（遅いのでやめた）
+POWERLEVEL9K_MODE='nerdfont-complete'
+
+# source prezto
+# Prezto is the configuration framework for Zsh; it enriches the command line interface environment with sane defaults, aliases, functions, auto completion, and prompt themes.
+# (https://github.com/sorin-ionescu/prezto)
+# 本来はprezto配下の.zshrcを読み込むようにするが，以下の処理しかしてないので，_dotfiles配下の.zshrcで編集できるよう以下の処理を追記
+if [[ -s "$HOME/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh" ]]; then
+  source "$HOME/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh"
 fi
 
 export ZPLUG_HOME=~/_dotfiles/.zsh/.zplug
 source $ZPLUG_HOME/init.zsh
 
-export PATH="$HOME/.pyenv/shims:$PATH"
-
-# peco(インクリメンタルサーチ) for zsh
-zplug "mollifier/anyframe"
-
-# gitルートへ一発でcdできる
-# zplug "mollifier/cd-gitroot"
-
-# history関係
-# zplug "zsh-users/zsh-history-substring-search"
-
-# 補完
-# zplug "zsh-users/zsh-completions"
+# export PATH="$HOME/.pyenv/shims:$PATH"
+# 
+# # peco(インクリメンタルサーチ) for zsh
+# zplug "mollifier/anyframe"
+# 
+# # gitルートへ一発でcdできる
+# # zplug "mollifier/cd-gitroot"
+# 
+# # history関係
+# # zplug "zsh-users/zsh-history-substring-search"
+# 
+# # 補完
+# # zplug "zsh-users/zsh-completions"
 
 #prezto
 zplug "sorin-ionescu/prezto"
+# prezto plugins
 zplug "modules/prompt", from:prezto
 
 
@@ -33,18 +44,14 @@ if ! zplug check --verbose; then
 fi
 
 # Then, source plugins and add commands to $PATH
-zplug load --verbose
-
+# zplug load --verbose
+zplug load
 
 
 #alias
 alias sp3='source ~/study/python/py36/env/bin/activate'
-alias da='dactivate'
-
-
-
-
-
+alias sp27='source ~/SenseTest/py27/bin/activate'
+alias da='deactivate'
 
 # (tmux)シェルログイン時に自動的にアタッチ(https://qiita.com/b4b4r07/items/01359e8a3066d1c37edc)
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
@@ -80,7 +87,7 @@ function tmux_automatically_attach_session()
                 # detached session exists
                 tmux list-sessions
                 echo -n "Tmux: attach? (y/N/num) "
-                read
+                rejd
                 if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" == '' ]]; then
                     tmux attach-session
                     if [ $? -eq 0 ]; then
