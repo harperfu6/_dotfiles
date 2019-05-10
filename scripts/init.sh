@@ -15,7 +15,7 @@ if [ -z "${DOTPATH:-}" ]; then
   DOTPATH=$(pwd -P); export DOTPATH
 fi
 
-sudo -v
+#sudo -v
 
-#bash "$DOTPATH"/scripts/zsh.sh
-#bash "$DOTPATH"/scripts/vim.sh
+bash "$DOTPATH"/scripts/zsh.sh
+bash "$DOTPATH"/scripts/vim.sh
