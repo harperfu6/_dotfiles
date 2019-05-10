@@ -1,16 +1,9 @@
 # ENV
 export TERM="xterm-256color"
-export PATH="/usr/local/opt/texinfo/bin:$PATH"
-# powerlivel9k用（遅いのでやめた）
-POWERLEVEL9K_MODE='nerdfont-complete'
-
-# source prezto
-# Prezto is the configuration framework for Zsh; it enriches the command line interface environment with sane defaults, aliases, functions, auto completion, and prompt themes.
-# (https://github.com/sorin-ionescu/prezto)
-# 本来はprezto配下の.zshrcを読み込むようにするが，以下の処理しかしてないので，_dotfiles配下の.zshrcで編集できるよう以下の処理を追記
-if [[ -s "$HOME/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh" ]]; then
-  source "$HOME/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh"
-fi
+## tex
+# export PATH="/usr/local/opt/texinfo/bin:$PATH"
+## powerlivel9k用（遅いのでやめた）
+#POWERLEVEL9K_MODE='nerdfont-complete'
 
 export ZPLUG_HOME=~/_dotfiles/.zsh/.zplug
 source $ZPLUG_HOME/init.zsh
@@ -46,6 +39,14 @@ fi
 # Then, source plugins and add commands to $PATH
 # zplug load --verbose
 zplug load
+
+# source prezto
+# Prezto is the configuration framework for Zsh; it enriches the command line interface environment with sane defaults, aliases, functions, auto completion, and prompt themes.
+# (https://github.com/sorin-ionescu/prezto)
+# 本来はprezto配下の.zshrcを読み込むようにするが，以下の処理しかしてないので，_dotfiles配下の.zshrcで編集できるよう以下の処理を追記
+if [[ -s "$HOME/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh" ]]; then
+  source "$HOME/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh"
+fi
 
 
 #alias

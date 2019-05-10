@@ -5,109 +5,113 @@
 "------------------------------------
 " powerline.vim
 "------------------------------------
-let g:powerline_pycmd="py3"
-let g:powerline_pyeval="py3eval"
-"python3 from powerline.vim import setup as powerline_setup
-"python3 powerline_setup()
-"python3 del powerline_setup
+"let g:powerline_pycmd="py3"
+"let g:powerline_pyeval="py3eval"
+""python3 from powerline.vim import setup as powerline_setup
+""python3 powerline_setup()
+""python3 del powerline_setup
+"set laststatus=2
+"set matchtime=1
+"set display=lastline
+"let g:Powerline_symbols = 'fancy'
+
+"------------------------------------
+" lightline.vim
+"------------------------------------
 set laststatus=2
-set matchtime=1
-set display=lastline
-let g:Powerline_symbols = 'fancy'
 
-
-"------------------------------------
-" ale.vim
-"------------------------------------
-" エラー行に表示するマーク
-let g:ale_sign_error = '⨉'
-let g:ale_sign_warning = '⚠'
-" エラー行にカーソルをあわせた際に表示されるメッセージフォーマット
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" エラー表示の列を常時表示
-let g:ale_sign_column_always = 1
-
-" ファイルを開いたときにlint実行
-let g:ale_lint_on_enter = 1
-" ファイルを保存したときにlint実行
-let g:ale_lint_on_save = 1
-" 編集中のlintはしない
-let g:ale_lint_on_text_changed = 'never'
-
-" lint結果をロケーションリストとQuickFixには表示しない
-" 出てると結構うざいしQuickFixを書き換えられるのは困る
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 0
-let g:ale_open_list = 0
-let g:ale_keep_list_window_open = 0
-
-" 有効にするlinter
-let g:ale_linters = {
-\   'python': ['flake8', 'mypy'],
-\}
-
-" ALE用プレフィックス
-nmap [ale] <Nop>
-map <C-k> [ale]
-" エラー行にジャンプ
-nmap <silent> [ale]<C-P> <Plug>(ale_previous)
-nmap <silent> [ale]<C-N> <Plug>(ale_next)
-
-
-"------------------------------------
-" jedi-vim.vim
-"------------------------------------
-" 補完時にpreviewを消す
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-
-"------------------------------------
-" neocomplete.vim
-"------------------------------------
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  " return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-" Close popup by <Space>.
-inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-
-
-"For jedi
-autocmd FileType python setlocal omnifunc=jedi#completions
-"let g:jedi#completions_enabled = 0
-"let g:jedi#auto_vim_configuration = 0
+""------------------------------------
+"" ale.vim
+""------------------------------------
+"" エラー行に表示するマーク
+"let g:ale_sign_error = '⨉'
+"let g:ale_sign_warning = '⚠'
+"" エラー行にカーソルをあわせた際に表示されるメッセージフォーマット
+"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"" エラー表示の列を常時表示
+"let g:ale_sign_column_always = 1
 "
-"if !exists('g:neocomplete#force_omni_input_patterns')
-"        let g:neocomplete#force_omni_input_patterns = {}
-"endif
+"" ファイルを開いたときにlint実行
+"let g:ale_lint_on_enter = 1
+"" ファイルを保存したときにlint実行
+"let g:ale_lint_on_save = 1
+"" 編集中のlintはしない
+"let g:ale_lint_on_text_changed = 'never'
 "
-"" let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-"let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+"" lint結果をロケーションリストとQuickFixには表示しない
+"" 出てると結構うざいしQuickFixを書き換えられるのは困る
+"let g:ale_set_loclist = 0
+"let g:ale_set_quickfix = 0
+"let g:ale_open_list = 0
+"let g:ale_keep_list_window_open = 0
+"
+"" 有効にするlinter
+"let g:ale_linters = {
+"\   'python': ['flake8', 'mypy'],
+"\}
+"
+"" ALE用プレフィックス
+"nmap [ale] <Nop>
+"map <C-k> [ale]
+"" エラー行にジャンプ
+"nmap <silent> [ale]<C-P> <Plug>(ale_previous)
+"nmap <silent> [ale]<C-N> <Plug>(ale_next)
+"
+"
+""------------------------------------
+"" jedi-vim.vim
+""------------------------------------
+"" 補完時にpreviewを消す
+"autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+"
+"
+""------------------------------------
+"" neocomplete.vim
+""------------------------------------
+""Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+"" Disable AutoComplPop.
+"let g:acp_enableAtStartup = 0
+"" Use neocomplete.
+"let g:neocomplete#enable_at_startup = 1
+"" Use smartcase.
+"let g:neocomplete#enable_smart_case = 1
+"" Set minimum syntax keyword length.
+"let g:neocomplete#sources#syntax#min_keyword_length = 3
+"let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+"" Plugin key-mappings.
+"inoremap <expr><C-g>     neocomplete#undo_completion()
+"inoremap <expr><C-l>     neocomplete#complete_common_string()
+"
+"" Recommended key-mappings.
+"" <CR>: close popup and save indent.
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+"  " return neocomplete#close_popup() . "\<CR>"
+"  " For no inserting <CR> key.
+"  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+"endfunction
+"" <TAB>: completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"" <C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-y>  neocomplete#close_popup()
+"inoremap <expr><C-e>  neocomplete#cancel_popup()
+"
+"" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+"
+"" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"
+"
+""For jedi
+"autocmd FileType python setlocal omnifunc=jedi#completions
+""let g:jedi#completions_enabled = 0
+""let g:jedi#auto_vim_configuration = 0
+""
+""if !exists('g:neocomplete#force_omni_input_patterns')
+""        let g:neocomplete#force_omni_input_patterns = {}
+""endif
+""
+""" let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+""let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
