@@ -23,7 +23,6 @@ init: ## Setup minimum environment
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/scripts/init.sh
 
 install: update init link  ## Run make update, init, link
-	#@exec $$SHELL
 	@exec /bin/zsh
 
 help: ## Self-documented Makefile
