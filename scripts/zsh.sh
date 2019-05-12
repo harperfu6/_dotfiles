@@ -17,7 +17,6 @@ fi
 #git clone https://github.com/zplug/zplug $ZPLUG_HOME
 #curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 
-export ZPLUG_HOME=~/_dotfiles/.zsh/.zplug
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh
 
 
