@@ -23,7 +23,7 @@ set rtp+=~/_dotfiles/.vim/repos/github.com/Shougo/dein.vim
 call dein#begin(expand('~/_dotfiles/.vim/'))
 
 " Let dein manage dein
-call dein#add('Shougo/dein.vim')
+call dein#add('~/_dotfiles/.vim/repos/github.com/Shougo/dein.vim')
 
 " Add or remove your plugins here:
 "color
