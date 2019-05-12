@@ -13,8 +13,13 @@ elif [ "$PLATFORM" == 'linux' ]; then
 fi
 
 # zplug(plugin manager for zsh)
+#export ZPLUG_HOME=~/_dotfiles/.zsh/.zplug
+#git clone https://github.com/zplug/zplug $ZPLUG_HOME
+#curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+
 export ZPLUG_HOME=~/_dotfiles/.zsh/.zplug
-git clone https://github.com/zplug/zplug $ZPLUG_HOME
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh
+
 
 if ! grep -q /bin/zsh /etc/shells; then
   echo "/bin/zsh" | sudo tee -a /etc/shells
