@@ -17,5 +17,5 @@ fi
 
 #sudo -v
 
-#bash "$DOTPATH"/scripts/zsh.sh
+bash "$DOTPATH"/scripts/zsh.sh
 bash "$DOTPATH"/scripts/vim.sh
