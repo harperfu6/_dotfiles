@@ -24,7 +24,6 @@ init: ## Setup minimum environment
 
 install: update init link  ## Run make update, init, link
 	@exec $$SHELL
-	#@exec /usr/bin/zsh
 
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
