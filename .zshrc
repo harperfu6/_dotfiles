@@ -14,8 +14,8 @@ if [[ -s "$HOME/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh" ]]; t
   source "$HOME/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh"
 fi
 
-export ZPLUG_HOME=~/_dotfiles/.zsh/.zplug
-source $ZPLUG_HOME/init.zsh
+#export ZPLUG_HOME=~/_dotfiles/.zsh/.zplug
+#source $ZPLUG_HOME/init.zsh
 
 # export PATH="$HOME/.pyenv/shims:$PATH"
 # 
