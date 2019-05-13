@@ -23,9 +23,9 @@ source $ZPLUG_HOME/init.zsh
 # # zplug "zsh-users/zsh-completions"
 
 #prezto
-#zplug "sorin-ionescu/prezto"
+zplug "sorin-ionescu/prezto"
 # prezto plugins
-#zplug "modules/prompt", from:prezto
+zplug "modules/prompt", from:prezto
 
 
 # Install plugins if there are plugins that have not been installed
