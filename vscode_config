@@ -1,0 +1,188 @@
+Host harper.com
+	HostName 160.16.110.121
+	Port 22
+	IdentityFile ~/.ssh/sakura_rsa
+	User harper
+	ServerAliveInterval 20
+
+Host Udaiz
+	HostName 13.59.0.57
+	Port 22
+  IdentityFile ~/.ssh/ec2-user_udaiz.pem
+  User ec2-user
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host logserver_proxy
+  User ec2-user
+	HostName 13.59.0.57
+  IdentityFile ~/.ssh/ec2-user_udaiz.pem
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host logserver
+ User ec2-user
+ HostName 172.31.25.95
+ IdentityFile ~/.ssh/udaiz-log-server.pem
+ ProxyCommand ssh logserver_proxy -W %h:%p
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host SakiRecommend_DNN
+	HostName 18.179.23.156
+	Port 22
+	IdentityFile ~/.ssh/SakiRecommend.pem
+	User ec2-user
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host make_context_interval
+	HostName 13.113.192.103
+	Port 22
+	IdentityFile ~/.ssh/SakiRecommend.pem
+	User ec2-user
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host SakiRecommend_analysis
+	HostName 52.194.227.87
+	Port 22
+	IdentityFile ~/.ssh/SakiRecommend.pem
+	User ec2-user
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host SakiRecommend_emr_master
+	HostName 3.112.128.138
+	Port 22
+	IdentityFile ~/.ssh/SakiRecommend.pem
+	User hadoop
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host SakiRecommend_make_user_context
+	HostName 54.199.167.205
+	Port 22
+	IdentityFile ~/.ssh/SakiRecommend.pem
+	User ec2-user
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+host chat_system
+	hostname 54.238.160.157
+	port 22
+	identityfile ~/.ssh/sakirecommend.pem
+	user ec2-user
+#LocalForward 19001 54.238.160.157:19001
+#LocalForward 19002 54.238.160.157:19002
+	LocalForward 19001 localhost:19001
+	LocalForward 19002 localhost:19002
+	serveraliveinterval 1024
+	serveralivecountmax 4
+
+host line_bot
+	hostname 52.197.182.32
+	port 22
+	identityfile ~/.ssh/sakirecommend.pem
+	user ec2-user
+	serveraliveinterval 1024
+	serveralivecountmax 4
+
+host scraping_test
+	hostname 3.113.19.75
+	port 22
+	identityfile ~/.ssh/sakirecommend.pem
+	user ec2-user
+	serveraliveinterval 1024
+	serveralivecountmax 4
+	
+host estie_release
+	hostname 52.192.44.112
+	port 22
+	identityfile ~/.ssh/estie_yamaji_product.pem
+	user yamaji
+	serveraliveinterval 1024
+	serveralivecountmax 4
+
+host estie_recommend_api
+	hostname 3.112.13.50
+	port 22
+	identityfile ~/.ssh/estie_yamaji_recommend_api.pem
+	user yamaji
+	serveraliveinterval 1024
+	serveralivecountmax 4
+
+Host estie_proxy
+	hostname 52.194.187.228
+  User ec2-user
+	identityfile ~/.ssh/estie_yamaji.pem
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+#host estie_recommend_engine
+#	port 22
+#	User ec2-user
+#	hostname 10.0.4.178
+#	identityfile ~/.ssh/estie_yamaji.pem
+#	ProxyCommand ssh estie_proxy -W %h:%p
+#	ServerAliveInterval 1024
+#	ServerAliveCountMax 4
+
+host estie_recommend_engine
+	hostname 13.115.165.44
+	port 22
+	User ec2-user
+	identityfile ~/.ssh/estie_yamaji.pem
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+host estie_recommend_engine_stg
+	hostname 18.179.41.226
+	port 22
+	User ec2-user
+	identityfile ~/.ssh/estie_yamaji.pem
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+host estie_product_stg
+	hostname 54.178.54.148
+	port 22
+	identityfile ~/.ssh/estie_yamaji.pem
+	user ec2-user
+	serveraliveinterval 1024
+	serveralivecountmax 4
+
+Host sense-dev
+	HostName 13.114.92.75
+	User dev
+	IdentityFile ~/.ssh/web_server_dev_01.pem
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host devd
+	HostName 52.69.141.158
+	User dev
+	IdentityFile ~/.ssh/web_server_dev_01.pem
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+
+Host sense-mirror
+	HostName 18.179.156.46
+	User dev
+	IdentityFile ~/.ssh/web_server_dev_01.pem
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host sense-stg
+	HostName 13.113.23.175
+	User dev
+	IdentityFile ~/.ssh/web_server_dev_01.pem
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host github_harperfu6 github.com
+ Hostname github.com
+ Port 22
+ User git
+ IdentityFile ~/.ssh/github_harperfu6

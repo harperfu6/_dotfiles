@@ -2,6 +2,13 @@
 export TERM="xterm-256color"
 ## tex
 # export PATH="/usr/local/opt/texinfo/bin:$PATH"
+ export PATH="$PATH:$HOME/.nodebrew/current/bin"
+## python
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+## docker-expo
+export PATH="$HOME/project/Expo/docker-expo:$PATH"
 ## powerlivel9k用（遅いのでやめた）
 #POWERLEVEL9K_MODE='nerdfont-complete'
 
@@ -14,8 +21,10 @@ if [[ -s "$HOME/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh" ]]; t
   source "$HOME/_dotfiles/.zsh/.zplug/repos/sorin-ionescu/prezto/init.zsh"
 fi
 
-#export ZPLUG_HOME=~/_dotfiles/.zsh/.zplug
-#source $ZPLUG_HOME/init.zsh
+#
+export ZPLUG_HOME=~/_dotfiles/.zsh/.zplug
+source $ZPLUG_HOME/init.zsh
+#
 
 # export PATH="$HOME/.pyenv/shims:$PATH"
 # 
