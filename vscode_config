@@ -71,7 +71,7 @@ Host SakiRecommend_make_user_context
 host chat_system
 	hostname 54.238.160.157
 	port 22
-	identityfile ~/.ssh/sakirecommend.pem
+	identityfile ~/.ssh/akirecommend.pem
 	user ec2-user
 #LocalForward 19001 54.238.160.157:19001
 #LocalForward 19002 54.238.160.157:19002
@@ -95,7 +95,25 @@ host scraping_test
 	user ec2-user
 	serveraliveinterval 1024
 	serveralivecountmax 4
+
+host handson
+	hostname 3.113.13.51
+	port 22
+	identityfile ~/.ssh/sakirecommend.pem
+	user ec2-user
+	LocalForward 8888 localhost:8888
+	LocalForward 4040 localhost:4040
+	serveraliveinterval 1024
+	serveralivecountmax 4
 	
+host estie_product_yamaji
+	hostname 13.231.99.212
+	port 22
+	identityfile ~/.ssh/estie_yamaji.pem
+	user ec2-user
+	serveraliveinterval 1024
+	serveralivecountmax 4
+
 host estie_release
 	hostname 52.192.44.112
 	port 22
@@ -119,6 +137,13 @@ Host estie_proxy
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
 
+Host estie_araiken
+	hostname 13.115.231.212
+  User ec2-user
+	identityfile ~/.ssh/estie_yamaji.pem
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
 #host estie_recommend_engine
 #	port 22
 #	User ec2-user
@@ -129,14 +154,6 @@ Host estie_proxy
 #	ServerAliveCountMax 4
 
 host estie_recommend_engine
-	hostname 13.115.165.44
-	port 22
-	User ec2-user
-	identityfile ~/.ssh/estie_yamaji.pem
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-host estie_recommend_engine_stg
 	hostname 18.179.41.226
 	port 22
 	User ec2-user
