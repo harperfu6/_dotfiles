@@ -71,7 +71,7 @@ Host SakiRecommend_make_user_context
 host chat_system
 	hostname 54.238.160.157
 	port 22
-	identityfile ~/.ssh/akirecommend.pem
+	identityfile ~/.ssh/SakiRecommend.pem
 	user ec2-user
 #LocalForward 19001 54.238.160.157:19001
 #LocalForward 19002 54.238.160.157:19002
@@ -83,7 +83,7 @@ host chat_system
 host line_bot
 	hostname 52.197.182.32
 	port 22
-	identityfile ~/.ssh/sakirecommend.pem
+	identityfile ~/.ssh/SakiRecommend.pem
 	user ec2-user
 	serveraliveinterval 1024
 	serveralivecountmax 4
@@ -91,7 +91,7 @@ host line_bot
 host scraping_test
 	hostname 3.113.19.75
 	port 22
-	identityfile ~/.ssh/sakirecommend.pem
+	identityfile ~/.ssh/SakiRecommend.pem
 	user ec2-user
 	serveraliveinterval 1024
 	serveralivecountmax 4
@@ -99,7 +99,7 @@ host scraping_test
 host handson
 	hostname 3.113.13.51
 	port 22
-	identityfile ~/.ssh/sakirecommend.pem
+	identityfile ~/.ssh/SakiRecommend.pem
 	user ec2-user
 	LocalForward 8888 localhost:8888
 	LocalForward 4040 localhost:4040
