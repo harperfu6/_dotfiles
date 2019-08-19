@@ -36,6 +36,14 @@ Host SakiRecommend_DNN
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
 
+Host recommender
+	HostName 13.114.136.122
+	Port 22
+	IdentityFile ~/.ssh/SakiRecommend.pem
+	User ec2-user
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
 Host make_context_interval
 	HostName 13.113.192.103
 	Port 22
