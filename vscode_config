@@ -37,11 +37,11 @@ Host SakiRecommend_DNN
 	ServerAliveCountMax 4
 
 Host recommender
-	HostName 13.230.82.169
+	HostName 52.192.177.195
 	Port 22
 	IdentityFile ~/.ssh/SakiRecommend.pem
 	User ec2-user
-	LocalForward 8000 localhost:8888
+	LocalForward 8008 localhost:8888
 	LocalForward 8009 localhost:8889
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
