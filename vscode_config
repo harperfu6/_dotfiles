@@ -41,8 +41,8 @@ Host recommender
 	Port 22
 	IdentityFile ~/.ssh/SakiRecommend.pem
 	User ec2-user
-	LocalForward 8008 localhost:8888
-	LocalForward 8009 localhost:8889
+	LocalForward 8008 127.0.0.1:8888
+	LocalForward 8009 127.0.0.1:8889
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
 
