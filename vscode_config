@@ -28,16 +28,8 @@ Host logserver
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
 
-Host SakiRecommend_DNN
-	HostName 18.179.23.156
-	Port 22
-	IdentityFile ~/.ssh/SakiRecommend.pem
-	User ec2-user
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
 Host recommender
-	HostName 52.194.186.71
+	HostName 52.197.167.22
 	Port 22
 	IdentityFile ~/.ssh/SakiRecommend.pem
 	User ec2-user
@@ -45,50 +37,6 @@ Host recommender
 	LocalForward 8009 127.0.0.1:8889
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
-
-Host make_context_interval
-	HostName 13.113.192.103
-	Port 22
-	IdentityFile ~/.ssh/SakiRecommend.pem
-	User ec2-user
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-Host SakiRecommend_analysis
-	HostName 52.194.227.87
-	Port 22
-	IdentityFile ~/.ssh/SakiRecommend.pem
-	User ec2-user
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-Host SakiRecommend_emr_master
-	HostName 3.112.128.138
-	Port 22
-	IdentityFile ~/.ssh/SakiRecommend.pem
-	User hadoop
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-Host SakiRecommend_make_user_context
-	HostName 54.199.167.205
-	Port 22
-	IdentityFile ~/.ssh/SakiRecommend.pem
-	User ec2-user
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-host chat_system
-	hostname 54.238.160.157
-	port 22
-	identityfile ~/.ssh/SakiRecommend.pem
-	user ec2-user
-#LocalForward 19001 54.238.160.157:19001
-#LocalForward 19002 54.238.160.157:19002
-	LocalForward 19001 localhost:19001
-	LocalForward 19002 localhost:19002
-	serveraliveinterval 1024
-	serveralivecountmax 4
 
 host line_bot
 	hostname 52.197.182.32
@@ -116,14 +64,6 @@ host handson
 	serveraliveinterval 1024
 	serveralivecountmax 4
 	
-host estie_product_yamaji
-	hostname 13.231.99.212
-	port 22
-	identityfile ~/.ssh/estie_yamaji.pem
-	user ec2-user
-	serveraliveinterval 1024
-	serveralivecountmax 4
-
 host estie_release
 	hostname 52.192.44.112
 	port 22
@@ -131,6 +71,29 @@ host estie_release
 	user yamaji
 	serveraliveinterval 1024
 	serveralivecountmax 4
+
+host estie_product_stg
+	hostname 54.178.54.148
+	port 22
+	identityfile ~/.ssh/estie_yamaji.pem
+	user ec2-user
+	serveraliveinterval 1024
+	serveralivecountmax 4
+
+Host estie_araiken
+	hostname 13.115.231.212
+  User ec2-user
+	identityfile ~/.ssh/estie_yamaji.pem
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+host estie_vpn_test
+	hostname 13.231.124.10
+	port 22
+	User ec2-user
+	identityfile ~/.ssh/estie_yamaji.pem
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
 
 host estie_recommend_api
 	hostname 3.112.13.50
@@ -147,37 +110,22 @@ Host estie_proxy
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
 
-Host estie_araiken
-	hostname 13.115.231.212
-  User ec2-user
-	identityfile ~/.ssh/estie_yamaji.pem
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-#host estie_recommend_engine
-#	port 22
-#	User ec2-user
-#	hostname 10.0.4.178
-#	identityfile ~/.ssh/estie_yamaji.pem
-#	ProxyCommand ssh estie_proxy -W %h:%p
-#	ServerAliveInterval 1024
-#	ServerAliveCountMax 4
-
 host estie_recommend_engine
-	hostname 18.179.41.226
+	hostname 52.69.112.233
 	port 22
 	User ec2-user
 	identityfile ~/.ssh/estie_yamaji.pem
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
 
-host estie_product_stg
-	hostname 54.178.54.148
+host estie_recommend_engine_stg
+	hostname 13.231.255.110
 	port 22
+	User ec2-user
+	LocalForward 7007 localhost:8008
 	identityfile ~/.ssh/estie_yamaji.pem
-	user ec2-user
-	serveraliveinterval 1024
-	serveralivecountmax 4
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
 
 Host sense-dev
 	HostName 13.114.92.75
