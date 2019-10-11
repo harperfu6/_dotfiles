@@ -29,9 +29,29 @@ Host logserver
 	ServerAliveCountMax 4
 
 Host recommender
-	HostName 52.197.167.22
+	HostName 3.115.126.207
 	Port 22
 	IdentityFile ~/.ssh/SakiRecommend.pem
+	User ec2-user
+	LocalForward 8008 127.0.0.1:8888
+	LocalForward 8009 127.0.0.1:8889
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host pyspark_recommender_devd
+	HostName 52.196.186.50
+	Port 22
+	IdentityFile ~/.ssh/SakiRecommend.pem
+	User ec2-user
+	LocalForward 8008 127.0.0.1:8888
+	LocalForward 8009 127.0.0.1:8889
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host pyspark_recommender
+	HostName 54.250.166.50
+	Port 22
+	IdentityFile ~/.ssh/yamaji-pyspark-recommend-dev.pem
 	User ec2-user
 	LocalForward 8008 127.0.0.1:8888
 	LocalForward 8009 127.0.0.1:8889
@@ -119,7 +139,7 @@ host estie_recommend_engine
 	ServerAliveCountMax 4
 
 host estie_recommend_engine_stg
-	hostname 13.231.255.110
+	hostname 13.112.76.20
 	port 22
 	User ec2-user
 	LocalForward 7007 localhost:8008
