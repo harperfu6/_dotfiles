@@ -28,8 +28,16 @@ Host logserver
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
 
-Host recommender
-	HostName 3.115.126.207
+Host cog-tanaka-instance
+	HostName 13.230.242.23
+	Port 22
+	IdentityFile ~/.ssh/cog-tanaka-key.pem
+	User ec2-user
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host pyspark_recommender_devd
+	HostName 52.196.186.50
 	Port 22
 	IdentityFile ~/.ssh/SakiRecommend.pem
 	User ec2-user
@@ -38,8 +46,8 @@ Host recommender
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
 
-Host pyspark_recommender_devd
-	HostName 52.196.186.50
+Host recommender_devd
+	HostName 3.115.126.207
 	Port 22
 	IdentityFile ~/.ssh/SakiRecommend.pem
 	User ec2-user
@@ -57,6 +65,17 @@ Host pyspark_recommender
 	LocalForward 8009 127.0.0.1:8889
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
+
+Host EMR_recommender_local
+	HostName 18.176.7.225
+	Port 22
+	IdentityFile ~/.ssh/yamaji-pyspark-recommend-dev.pem
+	User ec2-user
+	LocalForward 8008 127.0.0.1:8888
+	LocalForward 8909 127.0.0.1:8989
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
 
 host line_bot
 	hostname 52.197.182.32
