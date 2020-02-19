@@ -2,7 +2,7 @@
 export TERM="xterm-256color"
 ## tex
 # export PATH="/usr/local/opt/texinfo/bin:$PATH"
- export PATH="$PATH:$HOME/.nodebrew/current/bin"
+export PATH="$PATH:$HOME/.nodebrew/current/bin"
 ## python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -128,3 +128,20 @@ function tmux_automatically_attach_session()
     fi
 }
 tmux_automatically_attach_session
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/yamaji/.pyenv/versions/anaconda3-2019.03/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/yamaji/.pyenv/versions/anaconda3-2019.03/etc/profile.d/conda.sh" ]; then
+        . "/Users/yamaji/.pyenv/versions/anaconda3-2019.03/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/yamaji/.pyenv/versions/anaconda3-2019.03/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+conda activate py37

@@ -1,51 +1,3 @@
-Host harper.com
-	HostName 160.16.110.121
-	Port 22
-	IdentityFile ~/.ssh/sakura_rsa
-	User harper
-	ServerAliveInterval 20
-
-Host Udaiz
-	HostName 13.59.0.57
-	Port 22
-  IdentityFile ~/.ssh/ec2-user_udaiz.pem
-  User ec2-user
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-Host logserver_proxy
-  User ec2-user
-	HostName 13.59.0.57
-  IdentityFile ~/.ssh/ec2-user_udaiz.pem
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-Host logserver
- User ec2-user
- HostName 172.31.25.95
- IdentityFile ~/.ssh/udaiz-log-server.pem
- ProxyCommand ssh logserver_proxy -W %h:%p
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-Host cog-tanaka-instance
-	HostName 13.230.242.23
-	Port 22
-	IdentityFile ~/.ssh/cog-tanaka-key.pem
-	User ec2-user
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-Host pyspark_recommender_devd
-	HostName 52.196.186.50
-	Port 22
-	IdentityFile ~/.ssh/SakiRecommend.pem
-	User ec2-user
-	LocalForward 8008 127.0.0.1:8888
-	LocalForward 8009 127.0.0.1:8889
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
 Host recommender_devd
 	HostName 3.115.126.207
 	Port 22
@@ -56,17 +8,7 @@ Host recommender_devd
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
 
-Host pyspark_recommender
-	HostName 54.250.166.50
-	Port 22
-	IdentityFile ~/.ssh/yamaji-pyspark-recommend-dev.pem
-	User ec2-user
-	LocalForward 8008 127.0.0.1:8888
-	LocalForward 8009 127.0.0.1:8889
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-Host EMR_recommender_local
+Host SakiRecommend_UET
 	HostName 18.176.7.225
 	Port 22
 	IdentityFile ~/.ssh/yamaji-pyspark-recommend-dev.pem
@@ -76,9 +18,36 @@ Host EMR_recommender_local
 	ServerAliveInterval 1024
 	ServerAliveCountMax 4
 
+Host SakiRecommend_MODEL
+	HostName 13.112.228.167
+	Port 22
+	IdentityFile ~/.ssh/yamaji-pyspark-recommend-dev.pem
+	User ec2-user
+	LocalForward 8008 127.0.0.1:8888
+	LocalForward 8909 127.0.0.1:8989
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+Host SakiRecommend_MYDAIZ
+	HostName 52.192.254.46
+	Port 22
+	IdentityFile ~/.ssh/yamaji-pyspark-recommend-dev.pem
+	User ec2-user
+	LocalForward 8008 127.0.0.1:8888
+	LocalForward 8909 127.0.0.1:8989
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
 
 host line_bot
 	hostname 52.197.182.32
+	port 22
+	identityfile ~/.ssh/SakiRecommend.pem
+	user ec2-user
+	serveraliveinterval 1024
+	serveralivecountmax 4
+
+host location_sharing_bot
+	hostname 13.231.226.25
 	port 22
 	identityfile ~/.ssh/SakiRecommend.pem
 	user ec2-user
@@ -119,21 +88,6 @@ host estie_product_stg
 	serveraliveinterval 1024
 	serveralivecountmax 4
 
-Host estie_araiken
-	hostname 13.115.231.212
-  User ec2-user
-	identityfile ~/.ssh/estie_yamaji.pem
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-host estie_vpn_test
-	hostname 13.231.124.10
-	port 22
-	User ec2-user
-	identityfile ~/.ssh/estie_yamaji.pem
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
 host estie_recommend_api
 	hostname 3.112.13.50
 	port 22
@@ -142,14 +96,7 @@ host estie_recommend_api
 	serveraliveinterval 1024
 	serveralivecountmax 4
 
-Host estie_proxy
-	hostname 52.194.187.228
-  User ec2-user
-	identityfile ~/.ssh/estie_yamaji.pem
-	ServerAliveInterval 1024
-	ServerAliveCountMax 4
-
-host estie_recommend_engine
+host estie_recommend_engine_prd
 	hostname 52.69.112.233
 	port 22
 	User ec2-user
@@ -159,6 +106,15 @@ host estie_recommend_engine
 
 host estie_recommend_engine_stg
 	hostname 13.112.76.20
+	port 22
+	User ec2-user
+	LocalForward 7007 localhost:8008
+	identityfile ~/.ssh/estie_yamaji.pem
+	ServerAliveInterval 1024
+	ServerAliveCountMax 4
+
+host estie_recommend_engine_dev
+	hostname 52.194.243.142
 	port 22
 	User ec2-user
 	LocalForward 7007 localhost:8008
