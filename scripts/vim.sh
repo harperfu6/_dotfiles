@@ -1,10 +1,7 @@
-#!/bin/bash
+#!/bin/zsh
 
-## Install dein.vim
+# Install dein.vim (is a dark powered Vim/Neovim plugin manager)
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-#sh ./installer.sh ~/.cache/dein
-sh ./installer.sh "$DOTPATH"/.vim
+# For example, we just use `~/.cache/dein` as installation directory
+sh ./installer.sh ~/.cache/dein
 rm installer.sh
-
-#ln -sfnv "$DOTPATH"/.vimrc "$HOME"/.config/nvim/init.vim
-ln -sfnv "$DOTPATH"/.vimrc "$HOME"/.vimrc

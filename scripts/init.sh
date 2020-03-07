@@ -11,11 +11,15 @@ fi
 
 export PLATFORM
 
+# 環境変数DOTPATHが設定されていればそのまま使う
+# DOTPATHは未宣言なので, NULLの場合は空で置換（初期化）しつつ宣言し，ifに入れる
 if [ -z "${DOTPATH:-}" ]; then
-  DOTPATH=$(pwd -P); export DOTPATH
+  DOTPATH=$(pwd -P) && export DOTPATH
 fi
 
-#sudo -v
+# cache sudo anthentication
+sudo -v
 
 bash "$DOTPATH"/scripts/zsh.sh
+bash "$DOTPATH"/scripts/tmux.sh
 bash "$DOTPATH"/scripts/vim.sh
