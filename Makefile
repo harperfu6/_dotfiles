@@ -14,6 +14,7 @@ list: # show dotfiles
 clean:
 	@echo 'remove symbolic links'
 	@$(foreach val, $(DOTFILES), rm -rf $(HOME)/$(val);)
+	rm -rf "$(HOME)/.zshrc"
 	rm -rf "$(HOME)/.zplug"
 	rm -rf "$(HOME)/.zprezto"
 	rm -rf "$(HOME)/.zlogin"
