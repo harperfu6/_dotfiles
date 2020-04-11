@@ -14,7 +14,6 @@ if &compatible
 endif
 " Add the dein installation directory into runtimepath
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-"set rtp+=~/_dotfiles/.vim/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
@@ -37,19 +36,25 @@ if dein#load_state('~/.cache/dein')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
 
-  " lightline
-  call dein#add('itchyny/lightline.vim')
-
   " surround
   call dein#add('tpope/vim-surround')
 
   " MarkDown
   "call dein#add('tpope/vim-markdown')
+  call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+					\ 'build': 'sh -c "cd app & yarn install"' })
+
+  " open browser
   "call dein#add('tyru/open-browser.vim')
+
+  " quick run
   "call dein#add('thinca/vim-quickrun')
 
   " ale(https://github.com/w0rp/ale)
   call dein#add('w0rp/ale')
+
+  " slimv
+  call dein#add('kovisoft/slimv')
 
   call dein#end()
   call dein#save_state()

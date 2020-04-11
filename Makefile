@@ -1,19 +1,31 @@
-DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
+DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST)))) # Makefileのあるディレクトリをドットファイルのパスとする
 DOTFILES := $(wildcard .??*) # remove . and ..
 EXCULUSIONS := .git .gitignore
 DOTFILES := $(filter-out $(EXCULUSIONS), $(DOTFILES))
 
+# @: コマンドを表示しない
 list: # show dotfiles
 	@$(foreach val, $(DOTFILES), ls -dF $(val);) # -d: directory themeslves, -F: append indicator
+
+clean:
+	@echo 'remove symbolic links'
+	@$(foreach val, $(DOTFILES), rm -rf $(HOME)/$(val);)
+	@echo 'done'
+
+install: init link
+	# @echo $(SHELL)
+	#
+init: # minimum setup
+	bash $(DOTPATH)/scripts/init.sh
 
 link: # make symbolic link under home directory
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 
-init: # minimum setup
-	bash $(DOTPATH)/scripts/init.sh
-
-install: init link
-	# @echo $(SHELL)
+done:
+	@echo ""
+	@echo "Finish install!"
+	@echo "Please run $(RED)chsh -s $(which zsh) and logout$(NOCOLOR)"
+	@echo ""
 
 help: # Makefile doc
 	@grep -E '^[a-zA-Z_-]+:.*?# .*$$' $(MAKEFILE_LIST) \

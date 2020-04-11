@@ -1,15 +1,55 @@
 #!/bin/bash
 
 if [ "$PLATFORM" == 'mac' ]; then
-  brew install zsh
+  echo "Install zsh"
+  brew install -y zsh
+  brew install -y tmux
+
+  echo "Install Powerline fonts"
+  # Powerline fonts
+  git clone https://github.com/powerline/fonts.git --depth=1
+  # install
+  cd fonts
+  ./install.sh
+  # clean-up a bit
+  cd ..
+  rm -rf fonts
+
+  echo "Install vim-gnome (for clipborad)"
+  brew install -y vim-gnome
+
 elif [ "$PLATFORM" == 'linux' ]; then
   if [ ! -z $(which yum) ]; then
-    sudo yum install zsh
+    echo "Install zsh"
+    sudo yum install -y zsh
+
+    echo "Install Powerline fonts"
+    # Powerline fonts
+    git clone https://github.com/powerline/fonts.git --depth=1
+    # install
+    cd fonts
+    ./install.sh
+    # clean-up a bit
+    cd ..
+    rm -rf fonts
+
+    echo "Install tmux"
+    sudo yum install -y tmux
+
+    echo "Install vim-gnome (for clipborad)"
+    sudo yum vim-gnome
+
   elif [ ! -z $(which apt-get) ]; then
-    sudo apt install zsh
-    sudo apt install fonts-powerline
-    sudo apt install vim-gnome
+    echo "Install zsh"
+    sudo apt install -y zsh
+    echo "Install Powerline fonts"
+    sudo apt install -y fonts-powerline
+    echo "Install tmux"
+    sudo apt install -y tmux
+    echo "Install vim-gnome (for clipborad)"
+    sudo apt install -y vim-gnome
     sudo apt autoremove
+
   else
     echo "WARNING: zsh was not able to be installed."
   fi
