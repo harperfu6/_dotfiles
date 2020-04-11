@@ -29,7 +29,7 @@ $ exit
 ```
 
 ## vimrc reload
-If vim is not updated after you update vimrc, try following.
+If vim is not updated after you update vimrc, try the following.
 - comment the rc file
 - run vim
 - uncomment the rc file
