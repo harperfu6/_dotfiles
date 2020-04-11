@@ -1,6 +1,9 @@
 #!/bin/bash
 
 if [ "$PLATFORM" == 'mac' ]; then
+  echo "Install Homebrew"
+  yes ' ' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
   echo "Install zsh"
   brew install -y zsh
   brew install -y tmux
@@ -15,8 +18,10 @@ if [ "$PLATFORM" == 'mac' ]; then
   cd ..
   rm -rf fonts
 
-  echo "Install vim-gnome (for clipborad)"
-  brew install -y vim-gnome
+  echo "Install vim (for clipborad)"
+  brew install -y vim
+  sudo mv /usr/bin/vim /usr/bin/old_vim
+  sudo ln /usr/local/Cellar/vim/*/bin/vim /usr/bin
 
 elif [ "$PLATFORM" == 'linux' ]; then
   if [ ! -z $(which yum) ]; then
