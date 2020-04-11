@@ -12,7 +12,7 @@ clean:
 	@$(foreach val, $(DOTFILES), rm -rf $(HOME)/$(val);)
 	@echo 'done'
 
-install: init link
+install: init link done
 	# @echo $(SHELL)
 	#
 init: # minimum setup
