@@ -14,8 +14,14 @@ list: # show dotfiles
 clean:
 	@echo 'remove symbolic links'
 	@$(foreach val, $(DOTFILES), rm -rf $(HOME)/$(val);)
-	@echo 'done'
-
+	rm -rf "$(HOME)/.zplug"
+	rm -rf "$(HOME)/.zprezto"
+	rm -rf "$(HOME)/.zlogin"
+	rm -rf "$(HOME)/.zlogout"
+	rm -rf "$(HOME)/.zpreztorc"
+	rm -rf "$(HOME)/.zprofile"
+	rm -rf "$(HOME)/.zshenv"
+	@echo 'done' 
 install: init link done
 	# @echo $(SHELL)
 	#

@@ -36,6 +36,9 @@ elif [ "$PLATFORM" == 'linux' ]; then
     echo "Install tmux"
     sudo yum install -y tmux
 
+    echo "Install chsh"
+    sudo yum install -y util-linux-user
+
     echo "Install vim-gnome (for clipborad)"
     sudo yum vim-gnome
 
