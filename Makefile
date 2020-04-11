@@ -1,4 +1,4 @@
-DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST)))) # Makefileのあるディレクトリをドットファイルのパスとする
+DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))# Makefileのあるディレクトリをドットファイルのパスとする
 DOTFILES := $(wildcard .??*) # remove . and ..
 EXCULUSIONS := .git .gitignore
 DOTFILES := $(filter-out $(EXCULUSIONS), $(DOTFILES))
