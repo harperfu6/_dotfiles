@@ -15,12 +15,12 @@ $ make link
 $ chsh -s $(which zsh)
 
 # Linux (AWS EC2)
-$sudo su
-$chsh ec2-user
+$ sudo su
+$ chsh ec2-user
 Changing shell for ec2-user.
 New shell [/bin/bash]: /usr/bin/zsh
 Shell changed.
-$exit
+$ exit
 ```
 
 ## logout
