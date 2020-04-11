@@ -39,8 +39,30 @@ elif [ "$PLATFORM" == 'linux' ]; then
     echo "Install chsh"
     sudo yum install -y util-linux-user
 
-    echo "Install vim-gnome (for clipborad)"
-    sudo yum vim-gnome
+    echo "Install vim (for clipborad)"
+    sudo yum install -y mercurial ncurses-devel gtk2 gtk2-devel xorg-x11-server-devel
+    sudo yum-builddep vim-X11
+    cd /usr/local/src
+    sudo hg clone https://bitbucket.org/vim-mirror/vim vim
+    cd vim
+
+    sudo ./configure --with-features=huge \
+     --enable-multibyte \
+     --enable-gpm \
+     --enable-cscope \
+     --enable-fontset \
+     --enable-fail-if-missing \
+     --enable-pythoninterp=dynamic \
+     --enable-python3interp=dynamic \
+     --enable-rubyinterp=dynamic \
+     --enable-gui=auto \
+     --enable-gtk2-check \
+     --with-x 
+
+    make
+    sudo make install
+
+    cd "$DOTPATH"
 
   elif [ ! -z $(which apt-get) ]; then
     echo "Install zsh"
