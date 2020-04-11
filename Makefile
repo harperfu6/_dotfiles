@@ -3,6 +3,10 @@ DOTFILES := $(wildcard .??*) # remove . and ..
 EXCULUSIONS := .git .gitignore
 DOTFILES := $(filter-out $(EXCULUSIONS), $(DOTFILES))
 
+# color
+RED        := $(shell tput setaf 1)
+NOCOLOR    := $(shell tput sgr0)
+
 # @: コマンドを表示しない
 list: # show dotfiles
 	@$(foreach val, $(DOTFILES), ls -dF $(val);) # -d: directory themeslves, -F: append indicator
@@ -24,7 +28,7 @@ link: # make symbolic link under home directory
 done:
 	@echo ""
 	@echo "Finish install!"
-	@echo "Please run $(RED)chsh -s $(which zsh) and logout$(NOCOLOR)"
+	@echo "Please run $(RED)chsh -s $$(which zsh) and logout$(NOCOLOR)"
 	@echo ""
 
 help: # Makefile doc
