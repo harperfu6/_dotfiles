@@ -1,5 +1,7 @@
-DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))# Makefileのあるディレクトリをドットファイルのパスとする
-DOTFILES := $(wildcard .??*) # remove . and ..
+# Makefileのあるディレクトリをドットファイルのパスとする
+DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
+# remove . and ..
+DOTFILES := $(wildcard .??*)
 EXCULUSIONS := .git .gitignore
 DOTFILES := $(filter-out $(EXCULUSIONS), $(DOTFILES))
 
@@ -9,12 +11,12 @@ NOCOLOR    := $(shell tput sgr0)
 
 # @: コマンドを表示しない
 list: # show dotfiles
-	@$(foreach val, $(DOTFILES), ls -dF $(val);) # -d: directory themeslves, -F: append indicator
+	# -d: directory themeslves, -F: append indicator
+	@$(foreach val, $(DOTFILES), ls -dF $(val);)
 
 clean:
 	@echo 'remove symbolic links'
 	@$(foreach val, $(DOTFILES), rm -rf $(HOME)/$(val);)
-	rm -rf "$(HOME)/.zshrc"
 	rm -rf "$(HOME)/.zplug"
 	rm -rf "$(HOME)/.zprezto"
 	rm -rf "$(HOME)/.zlogin"
@@ -22,10 +24,10 @@ clean:
 	rm -rf "$(HOME)/.zpreztorc"
 	rm -rf "$(HOME)/.zprofile"
 	rm -rf "$(HOME)/.zshenv"
-	@echo 'done' 
+	@echo 'done'
+
 install: init link done
-	# @echo $(SHELL)
-	#
+
 init: # minimum setup
 	bash $(DOTPATH)/scripts/init.sh
 
