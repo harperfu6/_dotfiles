@@ -22,6 +22,10 @@ set viminfo='50,<1000,s100,\"50 " viminfoファイルの設定
 set splitright                 " 新しいウィンドウを右に開く
 "set fencs=iso-2022-jp,sjis,euc-jp " JAPANESE!
 set clipboard=unnamedplus      " クリップボードを有効にする
+set noundofile                 " undoファイル(.*.un~)を作成しない
+set noswapfile                 " スワップファイル(.*swp)を作成しない
+set lazyredraw                 " コマンド実行中は再描画しない
+set ttyfast                    " 高速ターミナル接続を行う(スクロールが重くなる時の対策)
 
 "挿入モードをぬけたとき、自動的にIMEをoff"
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
@@ -38,18 +42,6 @@ command! Rg source $MYGVIMRC
 
 " ファイルタイプ判定をon
 filetype plugin on
-
-" undoファイル(.*.un~)を作成しない
-set noundofile
-
-" スワップファイル(.*swp)を作成しない
-set noswapfile
-
-" コマンド実行中は再描画しない
-set lazyredraw
-
-" 高速ターミナル接続を行う(スクロールが重くなる時の対策)
-set ttyfast
 
 " 自動的にペーストモードにする
 if &term =~ "xterm"
