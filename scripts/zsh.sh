@@ -108,7 +108,6 @@ if ! grep -q /bin/zsh /etc/shells; then
   echo "/bin/zsh" | sudo tee -a /etc/shells
 fi
 
-echo "aaaaaaaaaaaaaaaaaaa"
 # zplug (plugin manager for zsh)
 # $ZPLUG_HOME is set as ~/.zplug (https://github.com/zplug/installer/blob/master/installer.zsh)
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
