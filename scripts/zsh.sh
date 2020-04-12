@@ -2,11 +2,25 @@
 
 if [ "$PLATFORM" == 'mac' ]; then
   echo "Install Homebrew"
-  yes ' ' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  if [ -z "$(which brew)" ]; then
+    yes ' ' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  else
+    echo "Homebrew is already installed"
+  fi
 
   echo "Install zsh"
-  brew install -y zsh
-  brew install -y tmux
+  if [ -z "$(which zsh)" ]; then
+    brew install zsh
+  else
+    echo "reinstall zsh"
+    brew reinstall zsh && brew unlink zsh && brew link zsh
+  fi
+
+  if [ -z "$(which tmux)" ]; then
+    brew install tmux
+  else
+    echo "tmux is already installed"
+  fi
 
   echo "Install Powerline fonts"
   # Powerline fonts
@@ -19,9 +33,9 @@ if [ "$PLATFORM" == 'mac' ]; then
   rm -rf fonts
 
   echo "Install vim (for clipborad)"
-  brew install -y vim
-  sudo mv /usr/bin/vim /usr/bin/old_vim
-  sudo ln /usr/local/Cellar/vim/*/bin/vim /usr/bin
+  brew install vim
+  #sudo mv /usr/bin/vim /usr/bin/old_vim
+  #sudo ln /usr/local/Cellar/vim/*/bin/vim /usr/bin
 
 elif [ "$PLATFORM" == 'linux' ]; then
   if [ ! -z $(which yum) ]; then
@@ -94,6 +108,7 @@ if ! grep -q /bin/zsh /etc/shells; then
   echo "/bin/zsh" | sudo tee -a /etc/shells
 fi
 
+echo "aaaaaaaaaaaaaaaaaaa"
 # zplug (plugin manager for zsh)
 # $ZPLUG_HOME is set as ~/.zplug (https://github.com/zplug/installer/blob/master/installer.zsh)
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
