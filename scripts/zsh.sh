@@ -12,10 +12,11 @@ if [ "$PLATFORM" == 'mac' ]; then
   if [ -z "$(which zsh)" ]; then
     brew install zsh
   else
-    echo "reinstall zsh"
+    echo "ReInstall zsh (for libgdbm.4.dylib)"
     brew reinstall zsh && brew unlink zsh && brew link zsh
   fi
 
+  echo "Install tmux"
   if [ -z "$(which tmux)" ]; then
     brew install tmux
   else
