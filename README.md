@@ -4,7 +4,6 @@
 ```
 # for xcrun: erros: invalid acrive developer path...
 xcode-select --install
-
 ```
 
 ## install
@@ -35,6 +34,17 @@ $ exit
 ## logout
 ```
 $ exit
+```
+
+# vimrc (option)
+## vimrc clipboard for Mac
+fix the following for Mac
+```
+set clipboard=unnamedplus         " クリップボードを有効にする(for ubuntu)
+"set clipboard+=unnamed         " クリップボードを有効にする(for mac)
+↓
+"set clipboard=unnamedplus         " クリップボードを有効にする(for ubuntu)
+set clipboard+=unnamed         " クリップボードを有効にする(for mac)
 ```
 
 ## vimrc reload
