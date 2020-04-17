@@ -1,4 +1,13 @@
 # Installation
+## preparation (Mac)
+-----
+```
+# for xcrun: erros: invalid acrive developer path...
+xcode-select --install
+
+```
+
+## install
 -----
 ```
 $ cd _dotfiles/
@@ -11,7 +20,7 @@ $ make link
 ## chsh
 -----
 ```
-# Ubuntu / Mac OS
+# Ubuntu
 $ chsh -s $(which zsh)
 
 # Linux (AWS EC2)
