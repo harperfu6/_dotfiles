@@ -25,7 +25,8 @@ syntax on
 
 set background=dark
 "colorscheme jellybeans
-colorscheme molokai
+"colorscheme molokai
+colorscheme gruvbox
 set t_Co=256
 "colorscheme powerline
 

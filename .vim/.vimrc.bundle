@@ -21,16 +21,18 @@ if dein#load_state('~/.cache/dein')
   " Let dein manage dein
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-  " deoplete
-  call dein#add('Shougo/deoplete.nvim')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
+  "" Completion
+  "call dein#add('Shougo/deoplete.nvim')
+  "if !has('nvim')
+  "  call dein#add('roxma/nvim-yarp')
+  "  call dein#add('roxma/vim-hug-neovim-rpc')
+  "endif
+  call dein#add('neoclide/coc.nvim', {'branch': 'release'}) 
 
   " color
   call dein#add('tomasr/molokai')
   call dein#add('nanotech/jellybeans.vim')
+  call dein#add('morhetz/gruvbox')
 
   " airline
   call dein#add('vim-airline/vim-airline')

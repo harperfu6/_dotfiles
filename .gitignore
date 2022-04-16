@@ -2,3 +2,5 @@
 .vim/repos/
 
 ssh_config
+
+*.netrwhist

@@ -1,4 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/daiki/study/CP/AtCoder/ABC/001'
-let g:netrw_dirhist_2='/home/daiki/study/CP/AtCoder/ABC/001/C'
