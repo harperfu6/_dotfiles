@@ -95,8 +95,11 @@ elif [ "$PLATFORM" == 'linux' ]; then
     echo "Install tmux"
     sudo apt install -y tmux
     echo "Install vim-gnome (for clipborad)"
-    sudo apt install -y vim-gnome
+    sudo apt install -y vim-gtk
     sudo apt autoremove
+
+    # install node tool (for coc.vim)
+    zsh "$DOTPATH"/scripts/node.sh
 
   else
     echo "WARNING: zsh was not able to be installed."
