@@ -21,30 +21,34 @@ set viminfo='50,<1000,s100,\"50 " viminfoファイルの設定
 " set modelines=0              " モードラインは無効
 set splitright                 " 新しいウィンドウを右に開く
 "set fencs=iso-2022-jp,sjis,euc-jp " JAPANESE!
-set clipboard=unnamedplus         " クリップボードを有効にする(for ubuntu)
-"set clipboard+=unnamed         " クリップボードを有効にする(for mac)
+set noundofile                 " undoファイル(.*.un~)を作成しない
+let netrw_dirhistmax = 0       " .netrwhistファイルを作成しない
+set noswapfile                 " スワップファイル(.*swp)を作成しない
+set lazyredraw                 " コマンド実行中は再描画しない
+set ttyfast                    " 高速ターミナル接続を行う(スクロールが重くなる時の対策)
+set mouse=a                    " ターミナルでマウスを使用できるようにする
+set guioptions+=a              " ターミナルでマウスを使用できるようにする
+
+" クリップボードを有効にする
+let s:uname = system("uname -s")
+if s:uname == "Linux\n" " for ubuntu
+  set clipboard=unnamedplus
+elseif s:uname == "Darwin\n" " for mac
+  set clipboard+=unnamed
+else
+  echo "cannot set clipboard"
+endif
 
 "挿入モードをぬけたとき、自動的にIMEをoff"
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
-
-" ターミナルでマウスを使用できるようにする
-set mouse=a
-set guioptions+=a
-set ttymouse=xterm2
 
 " コマンドモードのEv/Rvでvimrcの編集と反映
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
 command! Rg source $MYGVIMRC
 
-set noundofile                 " undoファイル(.*.un~)を作成しない
-set noswapfile                 " スワップファイル(.*swp)を作成しない
-set lazyredraw                 " コマンド実行中は再描画しない
-set ttyfast                    " 高速ターミナル接続を行う(スクロールが重くなる時の対策)
-
 " ファイルタイプ判定をon
 filetype plugin on
-
 
 " 自動的にペーストモードにする
 if &term =~ "xterm"

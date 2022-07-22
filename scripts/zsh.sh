@@ -97,6 +97,8 @@ elif [ "$PLATFORM" == 'linux' ]; then
     echo "Install vim-gnome (for clipborad)"
     sudo apt install -y vim-gtk
     sudo apt autoremove
+		echo "Install neovim"
+		sudo apt install -y neovim
 
     # install node tool (for coc.vim)
     zsh "$DOTPATH"/scripts/node.sh

@@ -1,7 +1,6 @@
 "------------------------------------
 " Appearance
 "------------------------------------
-
 set showmatch         " 括弧の対応をハイライト
 set number            " 行番号表示
 set list              " 不可視文字表示
@@ -14,19 +13,13 @@ match ZenkakuSpace /　/
 
 " カーソル行をハイライト
 set cursorline
-" アンダーラインを引く(color terminal)
-"highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 
 "------------------------------------
-" カラースキーム
+" ColorScheme
 "------------------------------------
-
 syntax on
 
 set background=dark
-"colorscheme jellybeans
-"colorscheme molokai
 colorscheme gruvbox
 set t_Co=256
-"colorscheme powerline
 
