@@ -35,21 +35,3 @@ $ exit
 ```
 $ exit
 ```
-
-# vimrc (option)
-## vimrc clipboard for Mac
-fix the following for Mac
-```
-set clipboard=unnamedplus         " クリップボードを有効にする(for ubuntu)
-"set clipboard+=unnamed         " クリップボードを有効にする(for mac)
-↓
-"set clipboard=unnamedplus         " クリップボードを有効にする(for ubuntu)
-set clipboard+=unnamed         " クリップボードを有効にする(for mac)
-```
-
-## vimrc reload
-If vim is not updated after you update vimrc, try the following.
-- comment the rc file
-- run vim
-- uncomment the rc file
-- run vim
