@@ -20,7 +20,7 @@ if has('nvim')
   " comment
   Plug 'tpope/vim-commentary'
   " directory tree
-	Plug 'preservim/nerdtree'
+  Plug 'preservim/nerdtree'
   " LSP
   Plug 'neoclide/coc.nvim', {'branch': 'release'} 
   " ALE (Asynchronous Lint Engine)
@@ -28,10 +28,15 @@ if has('nvim')
   " MarkDown
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+  " Prettier (format on save)
+  Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'branch': 'release/0.x'
+  \ }
 
-	"""""""""""""""""""
+  """""""""""""""""""
   " language plugin
-	"""""""""""""""""""
+  """""""""""""""""""
   " rust
   Plug 'rust-lang/rust.vim'
   " emmet (html)
