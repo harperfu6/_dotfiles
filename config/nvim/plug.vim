@@ -14,25 +14,38 @@ if has('nvim')
   " airline
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+
   " fzf (ambiguous search)
   Plug 'junegunn/fzf', { 'build': './install --all', 'merged': 0 }
   Plug 'junegunn/fzf.vim', { 'depends': 'fzf' }
+
   " comment
   Plug 'tpope/vim-commentary'
+
+	" surround
+	Plug 'tpope/vim-surround'
+
   " directory tree
   Plug 'preservim/nerdtree'
+
   " LSP
   Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+
   " ALE (Asynchronous Lint Engine)
   " Plug 'w0rp/ale'
+	
   " MarkDown
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
   " Prettier (format on save)
   Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'branch': 'release/0.x'
   \ }
+
+	" code-action-menu
+	Plug 'weilbith/nvim-code-action-menu'
 
   """""""""""""""""""
   " language plugin
@@ -46,6 +59,15 @@ if has('nvim')
   " jsx/tsx
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
+	" prisma
+	Plug 'pantharshit00/vim-prisma'
+	" graphql
+	Plug 'jparise/vim-graphql'
+	" qmd(quarto)
+	Plug 'vim-pandoc/vim-pandoc-syntax'
+	Plug 'quarto-dev/quarto-vim'
+	" python
+	Plug 'vim-python/python-syntax'
 
 else
   Plug 'Shougo/defx.nvim'

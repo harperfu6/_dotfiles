@@ -54,6 +54,63 @@ imap <C-p>  <ESC>"*pa
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
 
+" markdown
+function! MdStrike()
+	let num_tab = count(getline("."), "\t")
+	if num_tab > 0
+		let tab_str = repeat("\t", num_tab)
+		s/\t\+//
+	else
+		let tab_str = ''
+	endif
+	call setline('.', tab_str . '- ~~' . getline('.') . '~~')
+endfunction
+
+function! MdBold()
+	let num_tab = count(getline("."), "\t")
+	if num_tab > 0
+		let tab_str = repeat("\t", num_tab)
+		s/\t\+//
+	else
+		let tab_str = ''
+	endif
+	s/- //
+	call setline('.', tab_str . '- **' . getline('.') . '**')
+endfunction
+
+function! MdCheckbox()
+	let num_tab = count(getline("."), "\t")
+	if num_tab > 0
+		let tab_str = repeat("\t", num_tab)
+		s/\t\+//
+	else
+		let tab_str = ''
+	endif
+	s/- //
+	call setline('.', tab_str . '- [ ] ' . getline('.'))
+endfunction
+
+function! MdBoxChecked()
+	let num_tab = count(getline("."), "\t")
+	if num_tab > 0
+		let tab_str = repeat("\t", num_tab)
+		s/\t\+//
+	else
+		let tab_str = ''
+	endif
+	s/- //
+	let is_box = count(getline("."), "[ ]")
+	if is_box > 0
+		s/\[ \] //
+	endif
+	call setline('.', tab_str . '- [x] ' . getline('.'))
+endfunction
+
+nnoremap ms :call MdStrike()<CR>
+nnoremap mb :call MdBold()<CR>
+nnoremap mc :call MdCheckbox()<CR>
+nnoremap mx :call MdBoxChecked()<CR>
+
 "-------------------------------------------------------------------------------
 " 画面操作系
 "-------------------------------------------------------------------------------

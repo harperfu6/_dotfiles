@@ -33,8 +33,20 @@ if [[ -e "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# fzf (vim)
+# alias (general)
+alias ls="exa"
+alias la="exa -la"
+alias as="/usr/local/android-studio/bin/studio.sh"
+
+# env
+export LIBTORCH=~/libtorch
+export LD_LIBRARY_PATH=/usr/local/lib:${LIBTORCH}/lib:$LD_LIBRARY_PATH
+
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# zoxide
+eval "$(zoxide init zsh)"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -49,3 +61,7 @@ alias vim="nvim"
 # Vector(https://vector.dev/docs/setup/quickstart/)
 alias run-vector="docker run -i -v $(pwd)/vector.toml:/etc/vector/vector.toml --rm timberio/vector:0.21.2-distroless-libc"
 alias aws="/usr/local/bin/aws"
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
