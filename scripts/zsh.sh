@@ -55,6 +55,17 @@ elif [ "$PLATFORM" == 'linux' ]; then
 		./squashfs-root/AppRun --version
 		sudo mv squashfs-root /
 		sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+		rm nvim.appimage nvim.sh
+		echo "Install fzf"
+		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+		~/.fzf/install
+		echo "Install zoxide"
+		curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+		echo "Install pyenv"
+		curl https://pyenv.run | bash
+		
+    # install node tool (for coc.vim)
+    zsh "$DOTPATH"/scripts/node.sh
 
   elif [ ! -z $(which apt-get) ]; then
     echo "Install zsh"
@@ -68,6 +79,13 @@ elif [ "$PLATFORM" == 'linux' ]; then
     sudo apt autoremove
     echo "Install neovim"
     sudo apt install -y neovim 
+		echo "Install fzf"
+		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+		~/.fzf/install
+		echo "Install zoxide"
+		curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+		echo "Install pyenv"
+		curl https://pyenv.run | bash
 
     # install node tool (for coc.vim)
     zsh "$DOTPATH"/scripts/node.sh

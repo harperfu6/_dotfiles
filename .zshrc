@@ -50,6 +50,7 @@ export LD_LIBRARY_PATH=/usr/local/lib:${LIBTORCH}/lib:$LD_LIBRARY_PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # zoxide
+export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init zsh)"
 
 # pyenv
