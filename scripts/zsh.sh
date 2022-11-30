@@ -45,7 +45,13 @@ elif [ "$PLATFORM" == 'linux' ]; then
     ./install.sh
     cd .. && rm -rf fonts
     echo "Install tmux"
-    sudo yum install -y tmux
+		sudo yum -y libevent ncurses libevent-devel ncurses-devel gcc make bison pkg-config
+		wget https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
+		tar -zxf tmux-*.tar.gz
+		cd tmux-*/
+		./configure
+		make && sudo make install
+		rm -rf tmux-3.3a tmux-3.3a.tar.gz
     echo "Install chsh"
     sudo yum install -y util-linux-user
     echo "Install neovim"
@@ -73,7 +79,13 @@ elif [ "$PLATFORM" == 'linux' ]; then
     echo "Install Powerline fonts"
     sudo apt install -y fonts-powerline
     echo "Install tmux"
-    sudo apt install -y tmux
+		sudo yum -y libevent ncurses libevent-devel ncurses-devel gcc make bison pkg-config
+		wget https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
+		tar -zxf tmux-*.tar.gz
+		cd tmux-*/
+		./configure
+		make && sudo make install
+		rm -rf tmux-3.3a tmux-3.3a.tar.gz
     echo "Install vim-gnome (for clipborad)"
     sudo apt install -y vim-gtk
     sudo apt autoremove

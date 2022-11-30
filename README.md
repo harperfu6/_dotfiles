@@ -35,3 +35,15 @@ $ exit
 ```
 $ exit
 ```
+
+# Install plugins
+## vim
+```
+$ vim
+:PlugInstall
+```
+## tmux
+```
+$ Prefix + I
+```
+
