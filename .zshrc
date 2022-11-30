@@ -37,6 +37,7 @@ fi
 alias ls="exa"
 alias la="exa -la"
 alias as="/usr/local/android-studio/bin/studio.sh"
+alias vim="nvim"
 
 # env
 export LIBTORCH=~/libtorch
@@ -44,6 +45,9 @@ export LD_LIBRARY_PATH=/usr/local/lib:${LIBTORCH}/lib:$LD_LIBRARY_PATH
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # zoxide
 eval "$(zoxide init zsh)"
@@ -56,7 +60,6 @@ eval "$(pyenv init -)"
 # nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-alias vim="nvim"
 
 # Vector(https://vector.dev/docs/setup/quickstart/)
 alias run-vector="docker run -i -v $(pwd)/vector.toml:/etc/vector/vector.toml --rm timberio/vector:0.21.2-distroless-libc"

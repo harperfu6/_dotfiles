@@ -29,63 +29,32 @@ if [ "$PLATFORM" == 'mac' ]; then
   # install
   cd fonts
   ./install.sh
-  # clean-up a bit
-  cd ..
-  rm -rf fonts
+  cd .. && rm -rf fonts
 
   echo "Install vim (for clipborad)"
   brew install vim
-  #sudo mv /usr/bin/vim /usr/bin/old_vim
-  #sudo ln /usr/local/Cellar/vim/*/bin/vim /usr/bin
 
 elif [ "$PLATFORM" == 'linux' ]; then
   if [ ! -z $(which yum) ]; then
     echo "Install zsh"
     sudo yum install -y zsh
-
     echo "Install Powerline fonts"
     # Powerline fonts
     git clone https://github.com/powerline/fonts.git --depth=1
-    # install
     cd fonts
     ./install.sh
-    # clean-up a bit
-    cd ..
-    rm -rf fonts
-
+    cd .. && rm -rf fonts
     echo "Install tmux"
     sudo yum install -y tmux
-
     echo "Install chsh"
     sudo yum install -y util-linux-user
-
-    #echo "Install vim (for clipborad)"
-    #sudo yum install -y mercurial ncurses-devel gcc gtk2 gtk2-devel xorg-x11-server-devel
-    #sudo yum-builddep vim-X11
-    #sudo yum -y groupinstall "X Window System"
-    #cd /usr/local/src
-    #sudo hg clone https://bitbucket.org/vim-mirror/vim vim
-    #cd vim
-
-    #rm -f src/auto/config.cache
-
-    #sudo ./configure --with-features=huge \
-    # --enable-multibyte \
-    # --enable-gpm \
-    # --enable-cscope \
-    # --enable-fontset \
-    # --enable-fail-if-missing \
-    # --enable-pythoninterp=dynamic \
-    # --enable-python3interp=dynamic \
-    # --enable-rubyinterp=dynamic \
-    # --enable-gui=auto \
-    # --enable-gtk2-check \
-    # --with-x 
-
-    #make
-    #sudo make install
-
-    #cd "$DOTPATH"
+    echo "Install neovim"
+		curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+		chmod u+x nvim.appimage
+		./nvim.appimage --appimage-extract
+		./squashfs-root/AppRun --version
+		sudo mv squashfs-root /
+		sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 
   elif [ ! -z $(which apt-get) ]; then
     echo "Install zsh"
@@ -97,8 +66,8 @@ elif [ "$PLATFORM" == 'linux' ]; then
     echo "Install vim-gnome (for clipborad)"
     sudo apt install -y vim-gtk
     sudo apt autoremove
-		echo "Install neovim"
-		sudo apt install -y neovim
+    echo "Install neovim"
+    sudo apt install -y neovim 
 
     # install node tool (for coc.vim)
     zsh "$DOTPATH"/scripts/node.sh
@@ -108,6 +77,9 @@ elif [ "$PLATFORM" == 'linux' ]; then
   fi
 fi
 
+echo "Install exa (using cargo (which means installing Rust as well!!))"
+curl https://sh.rustup.rs -sSf | sh
+cargo install exa
 
 # もし/etc/shellsに，/bin/zshがなければteeで受け取り/追記する
 if ! grep -q /bin/zsh /etc/shells; then
