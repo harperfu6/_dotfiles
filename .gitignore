@@ -1,5 +1,4 @@
-.vim/.cache/
-.vim/repos/
+.vim/
 old/
 
 ssh_config

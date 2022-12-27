@@ -16,6 +16,13 @@ if [ "$PLATFORM" == 'mac' ]; then
     brew reinstall zsh && brew unlink zsh && brew link zsh
   fi
 
+  echo "Install Powerline fonts"
+  # Powerline fonts
+  git clone https://github.com/powerline/fonts.git --depth=1
+  cd fonts
+  ./install.sh
+  cd .. && rm -rf fonts
+
   echo "Install tmux"
   if [ -z "$(which tmux)" ]; then
     brew install tmux
@@ -23,27 +30,33 @@ if [ "$PLATFORM" == 'mac' ]; then
     echo "tmux is already installed"
   fi
 
-  echo "Install Powerline fonts"
-  # Powerline fonts
-  git clone https://github.com/powerline/fonts.git --depth=1
-  # install
-  cd fonts
-  ./install.sh
-  cd .. && rm -rf fonts
+  echo "Install neovim"
+  brew install neovim
 
-  echo "Install vim (for clipborad)"
-  brew install vim
+	echo "Install fzf"
+  brew install fzf
+
+	echo "Install zoxide"
+  brew install zoxide
+
+	echo "Install pyenv"
+	curl https://pyenv.run | bash
+	
+  # install node tool (for coc.vim)
+  bash "$DOTPATH"/scripts/node.sh
 
 elif [ "$PLATFORM" == 'linux' ]; then
   if [ ! -z $(which yum) ]; then
     echo "Install zsh"
     sudo yum install -y zsh
+
     echo "Install Powerline fonts"
     # Powerline fonts
     git clone https://github.com/powerline/fonts.git --depth=1
     cd fonts
     ./install.sh
     cd .. && rm -rf fonts
+
     echo "Install tmux"
 		sudo yum -y libevent ncurses libevent-devel ncurses-devel gcc make bison pkg-config
 		wget https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
@@ -52,8 +65,10 @@ elif [ "$PLATFORM" == 'linux' ]; then
 		./configure
 		make && sudo make install
 		rm -rf tmux-3.3a tmux-3.3a.tar.gz
+
     echo "Install chsh"
     sudo yum install -y util-linux-user
+
     echo "Install neovim"
 		curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 		chmod u+x nvim.appimage
@@ -62,22 +77,27 @@ elif [ "$PLATFORM" == 'linux' ]; then
 		sudo mv squashfs-root /
 		sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 		rm nvim.appimage nvim.sh
+
 		echo "Install fzf"
 		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 		~/.fzf/install
+
 		echo "Install zoxide"
 		curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
 		echo "Install pyenv"
 		curl https://pyenv.run | bash
 		
     # install node tool (for coc.vim)
-    zsh "$DOTPATH"/scripts/node.sh
+    bash "$DOTPATH"/scripts/node.sh
 
   elif [ ! -z $(which apt-get) ]; then
     echo "Install zsh"
     sudo apt install -y zsh
+
     echo "Install Powerline fonts"
     sudo apt install -y fonts-powerline
+
     echo "Install tmux"
 		sudo yum -y libevent ncurses libevent-devel ncurses-devel gcc make bison pkg-config
 		wget https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
@@ -86,21 +106,26 @@ elif [ "$PLATFORM" == 'linux' ]; then
 		./configure
 		make && sudo make install
 		rm -rf tmux-3.3a tmux-3.3a.tar.gz
+
     echo "Install vim-gnome (for clipborad)"
     sudo apt install -y vim-gtk
     sudo apt autoremove
+
     echo "Install neovim"
     sudo apt install -y neovim 
+
 		echo "Install fzf"
 		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 		~/.fzf/install
+
 		echo "Install zoxide"
 		curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
 		echo "Install pyenv"
 		curl https://pyenv.run | bash
 
     # install node tool (for coc.vim)
-    zsh "$DOTPATH"/scripts/node.sh
+    bash "$DOTPATH"/scripts/node.sh
 
   else
     echo "WARNING: zsh was not able to be installed."
