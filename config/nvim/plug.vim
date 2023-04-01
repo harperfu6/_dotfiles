@@ -19,6 +19,9 @@ if has('nvim')
   Plug 'junegunn/fzf', { 'build': './install --all', 'merged': 0 }
   Plug 'junegunn/fzf.vim', { 'depends': 'fzf' }
 
+	" fugitive
+	Plug 'tpope/vim-fugitive'
+
   " comment
   Plug 'tpope/vim-commentary'
 

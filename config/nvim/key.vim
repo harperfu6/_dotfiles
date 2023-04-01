@@ -19,13 +19,13 @@ nnoremap ( %
 nnoremap ) %
 
 " insert mode での移動
-inoremap  <C-p> <Up>
-inoremap  <C-n> <Down>
-inoremap  <C-e> <END>
-inoremap  <C-a> <HOME>
+" inoremap  <C-p> <Up>
+" inoremap  <C-n> <Down>
+" inoremap  <C-e> <END>
+" inoremap  <C-a> <HOME>
 inoremap  <C-F> <Right>
 inoremap  <C-B> <Left>
-inoremap  <C-D> <Del>
+" inoremap  <C-D> <Del>
 
 "-------------------------------------------------------------------------------
 " 最後に編集した場所に移動する系

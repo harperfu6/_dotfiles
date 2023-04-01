@@ -4,6 +4,8 @@ if [ "$PLATFORM" == 'mac' ]; then
   echo "Install Homebrew"
   if [ -z "$(which brew)" ]; then
     yes ' ' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+		(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
   else
     echo "Homebrew is already installed"
   fi
@@ -34,16 +36,17 @@ if [ "$PLATFORM" == 'mac' ]; then
   brew install neovim
 
 	echo "Install fzf"
-  brew install fzf
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install
 
 	echo "Install zoxide"
   brew install zoxide
 
 	echo "Install pyenv"
 	curl https://pyenv.run | bash
-	
-  # install node tool (for coc.vim)
-  bash "$DOTPATH"/scripts/node.sh
+
+	echo "Install ag"
+	brew install the_silver_searcher
 
 elif [ "$PLATFORM" == 'linux' ]; then
   if [ ! -z $(which yum) ]; then
@@ -87,9 +90,9 @@ elif [ "$PLATFORM" == 'linux' ]; then
 
 		echo "Install pyenv"
 		curl https://pyenv.run | bash
-		
-    # install node tool (for coc.vim)
-    bash "$DOTPATH"/scripts/node.sh
+
+		echo "Install ag"
+		yum install the_silver_searcher
 
   elif [ ! -z $(which apt-get) ]; then
     echo "Install zsh"
@@ -124,8 +127,8 @@ elif [ "$PLATFORM" == 'linux' ]; then
 		echo "Install pyenv"
 		curl https://pyenv.run | bash
 
-    # install node tool (for coc.vim)
-    bash "$DOTPATH"/scripts/node.sh
+		echo "Install ag"
+		apt install the_silver_searcher
 
   else
     echo "WARNING: zsh was not able to be installed."

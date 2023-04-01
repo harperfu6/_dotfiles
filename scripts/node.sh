@@ -1,50 +1,55 @@
-#!/bin/bash
+#!/bin/zsh
 
-if [ "$(uname)" == 'Darwin' ]; then
-  PLATFORM='mac'
-elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-  PLATFORM='linux'
+if (( $(uname) == "Darwin" )); then
+  PLATFORM="mac"
+elif (( $(expr substr $(uname -s) 1 5) == "Linux" )); then
+  PLATFORM="linux"
 else
   echo "Your platform ($(uname -a)) is not supported."
   exit 1
 fi
 
-if [ "$PLATFORM" == 'mac' ]; then
+if (( $PLATFORM == "mac" )); then
 	# nvm
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 	source ~/.zshrc # add nvm path to PATH
 	nvm install --lts
 
-elif [ "$PLATFORM" == 'linux' ]; then
-  if [ ! -z $(which yum) ]; then
+	nvm install node
+	
+	# install latest npm
+	npm install -g npm@latest
+
+elif (( $PLATFORM == "linux" )); then
+  if (( ! -z $(which yum) )); then
 		# nvm
 		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 		source ~/.zshrc # add nvm path to PATH
 		nvm install --lts # install nodejs / npm
 		
-		# # add repository.
-		# curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-		# sudo yum install -y nodejs
+		# add repository.
+		curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+		sudo yum install -y nodejs
 		
-		# # install latest npm
-		# npm install -g npm@latest
+		# install latest npm
+		npm install -g npm@latest
 
-	elif [ ! -z $(which apt-get) ]; then
+	elif (( ! -z $(which apt-get) )); then
 		# Ubuntuで最新のnodeをインストールするためにはデフォルトのインストール先を変えてあげる必要がある
 		# 依存パッケージ
 		sudo apt install build-essential
 		
 		# nvm
 		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-		source ~/.zshrc # add nvm path to PATH
+		# source ~/.zshrc # add nvm path to PATH
 		nvm install --lts # install nodejs / npm
 		
-		# # add repository.
-		# curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-		# sudo apt-get install -y nodejs
+		# add repository.
+		curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+		sudo apt-get install -y nodejs
 		
-		# # install latest npm
-		# npm install -g npm@latest
+		# install latest npm
+		npm install -g npm@latest
 	else
 		echo "Unsupported PLATFORM"
 	fi
