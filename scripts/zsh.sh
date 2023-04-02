@@ -130,6 +130,9 @@ elif [ "$PLATFORM" == 'linux' ]; then
 		echo "Install ag"
 		apt install the_silver_searcher
 
+		echo "Install coreutils"
+		brew install coreutils
+
   else
     echo "WARNING: zsh was not able to be installed."
   fi

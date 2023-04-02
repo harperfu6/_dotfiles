@@ -50,6 +50,10 @@ if has('nvim')
 	" code-action-menu
 	Plug 'weilbith/nvim-code-action-menu'
 
+	" snippet
+	Plug 'hrsh7th/vim-vsnip'
+	Plug 'hrsh7th/vim-vsnip-integ'
+
   """""""""""""""""""
   " language plugin
   """""""""""""""""""

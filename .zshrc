@@ -73,3 +73,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # (for mac)
 PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
+# change color
+if [[ -e "$HOME/.colorrc" ]]; then
+	eval $(gdircolors $HOME/.colorrc)
+fi
