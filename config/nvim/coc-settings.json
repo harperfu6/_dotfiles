@@ -1,5 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "prisma"
-  ]
+  "coc.preferences.formatOnSaveFiletypes": ["prisma"],
+  "python.formatting.provider": "black",
+  "python.linting.mypyEnabled": "true"
 }

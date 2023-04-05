@@ -19,6 +19,9 @@ if has('nvim')
   Plug 'junegunn/fzf', { 'build': './install --all', 'merged': 0 }
   Plug 'junegunn/fzf.vim', { 'depends': 'fzf' }
 
+	" fugitive
+	Plug 'tpope/vim-fugitive'
+
   " comment
   Plug 'tpope/vim-commentary'
 
@@ -38,12 +41,6 @@ if has('nvim')
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
-  " Prettier (format on save)
-  Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install --frozen-lockfile --production',
-  \ 'branch': 'release/0.x'
-  \ }
-
 	" code-action-menu
 	Plug 'weilbith/nvim-code-action-menu'
 
@@ -59,6 +56,11 @@ if has('nvim')
   " jsx/tsx
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
+  " Prettier (format on save)
+  Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'branch': 'release/0.x'
+  \ }
 	" prisma
 	Plug 'pantharshit00/vim-prisma'
 	" graphql
