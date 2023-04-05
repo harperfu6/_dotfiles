@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-# synbolic link for nvim
-ln -sfnv "$DOTPATH"/config/nvim "$DOTPATH"/nvim
 alias vim='nvim' # 'vim' command alias to 'nvim'
 
 if [ ! -e $HOME/.config ]; then

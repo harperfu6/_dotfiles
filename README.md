@@ -1,22 +1,14 @@
-# Installation
-## preparation (Mac)
------
-```
-# for xcrun: erros: invalid acrive developer path...
-xcode-select --install
-```
-
 ## install
 -----
 ```
 $ cd _dotfiles/
 $ make install
 
-# If make link is not run (~/.zshrc is not existed), call it manually.
+# If ~/.zshrc is not existed, make link manually.
 $ make link
 ```
 
-## chsh
+## chsh (optional)
 -----
 ```
 # Ubuntu
@@ -31,19 +23,18 @@ Shell changed.
 $ exit
 ```
 
-## logout
-```
-$ exit
-```
+## Install plugins
+### zplug
+restart zsh then install automatically
 
-# Install plugins
-## vim
+### vim
 ```
 $ vim
 :PlugInstall
 ```
-## tmux
+### tmux
 ```
+$ tmux
 $ Prefix + I
 ```
 

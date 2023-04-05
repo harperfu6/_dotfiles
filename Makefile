@@ -26,13 +26,16 @@ clean:
 	rm -rf "$(HOME)/.zshenv"
 	@echo 'done'
 
-install: init link done
+install: init link node done
 
 init: # minimum setup
 	bash $(DOTPATH)/scripts/init.sh
 
 link: # make symbolic link under home directory
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
+
+node:
+	zsh $(DOTPATH)/scripts/node.sh
 
 done:
 	@echo ""
