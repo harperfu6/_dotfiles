@@ -72,7 +72,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # (for mac)
-PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+if [[ -e "/opt/homebrew/" ]]; then
+	PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+fi
 
 # change color
 if [[ -e "$HOME/.colorrc" ]]; then
