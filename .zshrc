@@ -39,6 +39,14 @@ alias la="exa -la"
 alias as="/usr/local/android-studio/bin/studio.sh"
 alias vim="nvim"
 
+## git
+alias gs="git status"
+alias gb="git branch"
+alias gba="git branch -a"
+alias ga="git add"
+alias gc="git commit -m"
+alias gp="git push"
+
 # env
 export LIBTORCH=~/libtorch
 export LD_LIBRARY_PATH=/usr/local/lib:${LIBTORCH}/lib:$LD_LIBRARY_PATH
