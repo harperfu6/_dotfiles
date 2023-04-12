@@ -20,6 +20,9 @@ if (( $PLATFORM == "mac" )); then
 	# install latest npm
 	npm install -g npm@latest
 
+	# install yarn
+	npm install -g yarn
+
 elif (( $PLATFORM == "linux" )); then
   if (( ! -z $(which yum) )); then
 		# nvm
@@ -33,6 +36,9 @@ elif (( $PLATFORM == "linux" )); then
 		
 		# install latest npm
 		npm install -g npm@latest
+
+		# install yarn
+		npm install -g yarn
 
 	elif (( ! -z $(which apt-get) )); then
 		# Ubuntuで最新のnodeをインストールするためにはデフォルトのインストール先を変えてあげる必要がある
@@ -50,6 +56,10 @@ elif (( $PLATFORM == "linux" )); then
 		
 		# install latest npm
 		npm install -g npm@latest
+
+		# install yarn
+		npm install -g yarn
+
 	else
 		echo "Unsupported PLATFORM"
 	fi
