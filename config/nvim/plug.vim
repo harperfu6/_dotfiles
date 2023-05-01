@@ -1,9 +1,9 @@
-" installed to ~/.local/share/nvim/plugged
+
 call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
 "   - Vim (Windows): '~/vimfiles/plugged'
-"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged' (./local/share/nvim)
 " You can specify a custom plugin directory by passing it as the argument
 "   - e.g. `call plug#begin('~/.vim/plugged')`
 "   - Avoid using standard Vim directory names like 'plugin'
@@ -45,7 +45,7 @@ if has('nvim')
 	
   " MarkDown
   Plug 'dhruvasagar/vim-table-mode'
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 	" code-action-menu
 	Plug 'weilbith/nvim-code-action-menu'
