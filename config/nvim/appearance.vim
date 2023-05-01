@@ -21,5 +21,6 @@ syntax on
 
 set background=dark
 colorscheme gruvbox
+" colorscheme tokyonight-night
 set t_Co=256
 

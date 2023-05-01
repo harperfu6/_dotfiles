@@ -15,6 +15,12 @@ if has('nvim')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 
+	" colorscheme
+	Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+
+	" Copilot
+	Plug 'github/copilot.vim'
+
   " fzf (ambiguous search)
   Plug 'junegunn/fzf', { 'build': './install --all', 'merged': 0 }
   Plug 'junegunn/fzf.vim', { 'depends': 'fzf' }
