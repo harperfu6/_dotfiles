@@ -40,7 +40,7 @@ alias as="/usr/local/android-studio/bin/studio.sh"
 alias vim="nvim"
 
 ## git
-alias gs="git status"
+alias gst="git status"
 alias gb="git branch"
 alias gba="git branch -a"
 alias ga="git add"
