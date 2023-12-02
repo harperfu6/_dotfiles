@@ -48,8 +48,9 @@ alias gc="git commit -m"
 alias gp="git push"
 
 # env
-export LIBTORCH=~/libtorch
-export LD_LIBRARY_PATH=/usr/local/lib:${LIBTORCH}/lib:$LD_LIBRARY_PATH
+# export LIBTORCH=~/libtorch
+# export LD_LIBRARY_PATH=/usr/local/lib:${LIBTORCH}/lib:$LD_LIBRARY_PATH
+unset LD_LIBRARY_PATH # for torch-cpu
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
