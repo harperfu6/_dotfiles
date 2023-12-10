@@ -1,5 +1,0 @@
-source ~/_dotfiles/config/nvim/basic.vim
-source ~/_dotfiles/config/nvim/key.vim
-source ~/_dotfiles/config/nvim/indent.vim
-source ~/_dotfiles/config/nvim/plug.vim
-source ~/_dotfiles/config/nvim/appearance.vim

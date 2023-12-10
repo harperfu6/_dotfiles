@@ -38,6 +38,10 @@ if [ "$PLATFORM" == 'mac' ]; then
 	echo "Install neovim"
 	brew install neovim
 
+	echo "Install lazyvim"
+	git clone https://github.com/LazyVim/starter ~/.config/nvim
+	rm -rf ~/.config/nvim/.git
+
 	echo "Install fzf"
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
@@ -129,6 +133,10 @@ elif [ "$PLATFORM" == 'linux' ]; then
 		echo "Install neovim"
 		sudo apt install -y neovim
 
+		echo "Install lazyvim"
+		git clone https://github.com/LazyVim/starter ~/.config/nvim
+		rm -rf ~/.config/nvim/.git
+
 		echo "Install fzf"
 		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 		~/.fzf/install
@@ -153,6 +161,12 @@ fi
 echo "Install exa (using cargo (which means installing Rust as well!!))"
 curl https://sh.rustup.rs -sSf | sh
 cargo install exa
+
+echo "Install alacritty"
+cargo install alacritty
+
+echo "Install rigrep"
+cargo install ripgrep
 
 # もし/etc/shellsに，/bin/zshがなければteeで受け取り/追記する
 if ! grep -q /bin/zsh /etc/shells; then
