@@ -10,8 +10,13 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+
     -- import any extras modules here
+    -- copilot
     { import = "lazyvim.plugins.extras.coding.copilot" },
+
+    -- neotest
+    { import = "lazyvim.plugins.extras.test.core" },
 
     -- python
     { import = "lazyvim.plugins.extras.lang.python" },
@@ -25,10 +30,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.rust" },
 
     -- markdown
-    { import = "lazyvim.plugins.extras.lang.markdown" },
-
-    -- { import = "lazyvim.plugins.extras.lang.json" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    -- { import = "lazyvim.plugins.extras.lang.markdown" },
 
     -- import/override with your plugins
     { import = "plugins" },
