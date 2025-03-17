@@ -2,7 +2,7 @@
 DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 # remove . and ..
 DOTFILES := $(wildcard .??*)
-EXCULUSIONS := .git .gitignore
+EXCULUSIONS := .git .gitignore .tmux
 DOTFILES := $(filter-out $(EXCULUSIONS), $(DOTFILES))
 
 # color
@@ -26,7 +26,8 @@ clean:
 	rm -rf "$(HOME)/.zshenv"
 	@echo 'done'
 
-install: init link node done
+# install: init link node done
+install: init link done # without node
 
 init: # minimum setup
 	bash $(DOTPATH)/scripts/init.sh

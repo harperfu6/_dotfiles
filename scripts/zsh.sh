@@ -111,27 +111,32 @@ elif [ "$PLATFORM" == 'linux' ]; then
 		yum install the_silver_searcher
 
 	elif [ ! -z $(which apt-get) ]; then
+		echo "Install utilies"
+		sudo apt install -y curl build-essential libfontconfig-dev
+
 		echo "Install zsh"
 		sudo apt install -y zsh
 
 		echo "Install Powerline fonts"
 		sudo apt install -y fonts-powerline
 
+		echo "Install Nerd font (for lazyvim)"
+		wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+		unzip JetBrainsMono.zip
+		mv *.ttf ~/.local/share/fonts/
+
 		echo "Install tmux"
-		sudo yum -y libevent ncurses libevent-devel ncurses-devel gcc make bison pkg-config
-		wget https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
-		tar -zxf tmux-*.tar.gz
-		cd tmux-*/
-		./configure
-		make && sudo make install
-		rm -rf tmux-3.3a tmux-3.3a.tar.gz
+		sudo apt install -y tmux
 
 		echo "Install vim-gnome (for clipborad)"
 		sudo apt install -y vim-gtk
 		sudo apt autoremove
 
 		echo "Install neovim"
-		sudo apt install -y neovim
+		curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+		chmod u+x nvim-linux-x86_64.appimage
+		sudo mkdir -p /opt/nvim
+		sudo mv nvim-linux-x86_64.appimage /opt/nvim/nvim
 
 		echo "Install lazyvim"
 		git clone https://github.com/LazyVim/starter ~/.config/nvim
@@ -148,18 +153,22 @@ elif [ "$PLATFORM" == 'linux' ]; then
 		curl https://pyenv.run | bash
 
 		echo "Install ag"
-		apt install the_silver_searcher
+		sudo apt install silversearcher-ag
 
 		echo "Install coreutils"
-		brew install coreutils
+		sudo apt install coreutils
 
 	else
 		echo "WARNING: zsh was not able to be installed."
 	fi
 fi
 
-echo "Install exa (using cargo (which means installing Rust as well!!))"
+echo "Install rust"
 curl https://sh.rustup.rs -sSf | sh
+
+source ~/.cargo/env
+
+echo "Install exa"
 cargo install exa
 
 echo "Install alacritty"

@@ -9,7 +9,7 @@ else
   exit 1
 fi
 
-if (( $PLATFORM == "mac" )); then
+if (( "$PLATFORM" == "mac" )); then
 	# nvm
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 	source ~/.zshrc # add nvm path to PATH
@@ -23,7 +23,7 @@ if (( $PLATFORM == "mac" )); then
 	# install yarn
 	npm install -g yarn
 
-elif (( $PLATFORM == "linux" )); then
+elif (( "$PLATFORM" == "linux" )); then
   if (( ! -z $(which yum) )); then
 		# nvm
 		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash

@@ -23,3 +23,4 @@ sudo -v
 bash "$DOTPATH"/scripts/zsh.sh
 bash "$DOTPATH"/scripts/tmux.sh
 bash "$DOTPATH"/scripts/vim.sh
+bash "$DOTPATH"/scripts/docker.sh

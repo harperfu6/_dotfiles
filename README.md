@@ -27,11 +27,6 @@ $ exit
 ### zplug
 restart zsh then install automatically
 
-### vim
-```
-$ vim
-:PlugInstall
-```
 ### tmux
 ```
 $ tmux

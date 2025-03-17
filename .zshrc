@@ -52,6 +52,9 @@ alias gp="git push"
 # export LD_LIBRARY_PATH=/usr/local/lib:${LIBTORCH}/lib:$LD_LIBRARY_PATH
 unset LD_LIBRARY_PATH # for torch-cpu
 
+# nvim
+export PATH="$PATH:/opt/nvim/"
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
