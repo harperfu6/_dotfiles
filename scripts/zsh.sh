@@ -152,6 +152,16 @@ elif [ "$PLATFORM" == 'linux' ]; then
 		echo "Install pyenv"
 		curl https://pyenv.run | bash
 
+		echo "Install Python build dependencies" 
+		sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \
+		libbz2-dev libreadline-dev libsqlite3-dev curl git \
+		libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
+		echo "Install Python 3.10.4"
+		exec "$SHELL"
+		pyenv install 3.10.4
+		pyenv global 3.10.4
+
 		echo "Install ag"
 		sudo apt install silversearcher-ag
 
